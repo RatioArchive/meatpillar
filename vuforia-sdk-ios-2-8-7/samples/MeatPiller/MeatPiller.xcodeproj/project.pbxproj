@@ -58,6 +58,7 @@
 		D8C0F4561878A2CB0069669B /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */; };
 		D8C0F4571878A2CB0069669B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */; };
 		D8C0F4581878A2CB0069669B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4551878A2CB0069669B /* StoreKit.framework */; };
+		D8C0F45B1878BA580069669B /* RedemptionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0F45A1878BA580069669B /* RedemptionTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,8 @@
 		D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D8C0F4551878A2CB0069669B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D8C0F4591878BA580069669B /* RedemptionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedemptionTableViewController.h; path = ../RedemptionTableViewController.h; sourceTree = "<group>"; };
+		D8C0F45A1878BA580069669B /* RedemptionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedemptionTableViewController.m; path = ../RedemptionTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +266,8 @@
 				376C28151863A55600C015CA /* RTOMainViewController.m */,
 				18F7950817F7305500C6A8DA /* RTOTextureAccessViewController.h */,
 				18F7950917F7305500C6A8DA /* RTOTextureAccessViewController.mm */,
+				D8C0F4591878BA580069669B /* RedemptionTableViewController.h */,
+				D8C0F45A1878BA580069669B /* RedemptionTableViewController.m */,
 			);
 			name = UI;
 			path = SampleAppUI;
@@ -435,6 +440,7 @@
 				18F794D617F7297600C6A8DA /* SampleAppMenu.m in Sources */,
 				18F794EA17F72A9100C6A8DA /* SampleApplicationSession.mm in Sources */,
 				18F794EB17F72A9100C6A8DA /* SampleApplicationShaderUtils.m in Sources */,
+				D8C0F45B1878BA580069669B /* RedemptionTableViewController.m in Sources */,
 				187764FF18038287003F4AD2 /* MeatPillerAccessAppDelegate.m in Sources */,
 				18F794EC17F72A9100C6A8DA /* SampleApplicationUtils.cpp in Sources */,
 				18F794F117F72A9100C6A8DA /* Texture.mm in Sources */,
