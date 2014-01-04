@@ -9,6 +9,8 @@
 #import "SampleApplicationSession.h"
 #import <QCAR/DataSet.h>
 
+extern NSString *const kDidFindAllRequiredTrackables;
+
 @interface RTOTextureAccessViewController : UIViewController <SampleApplicationControl, SampleAppMenuCommandProtocol>{
     CGRect viewFrame;
     CGRect arViewRect; // the size of the AR view

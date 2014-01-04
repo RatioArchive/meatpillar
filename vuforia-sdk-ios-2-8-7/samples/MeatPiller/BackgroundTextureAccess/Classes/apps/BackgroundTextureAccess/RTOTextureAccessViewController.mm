@@ -11,8 +11,10 @@
 #import <QCAR/CameraDevice.h>
 #import <QCAR/TrackableResult.h>
 
-@interface RTOTextureAccessViewController () <BackgroundTextureAccessEAGLDelegate>
+NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables";
 
+@interface RTOTextureAccessViewController () <BackgroundTextureAccessEAGLDelegate>
+@property (nonatomic, strong) NSMutableSet *foundItems;
 @end
 
 @implementation RTOTextureAccessViewController
@@ -43,6 +45,8 @@
     }
     return self;
 }
+
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self.backgroundObserver];
@@ -53,8 +57,17 @@
     
 }
 
-- (void)loadView
-{
+- (void)transitionToCompletionView:(NSNotification *)object {
+    NSLog(@"transition to completion view");
+}
+
+- (void)loadView {
+    self.foundItems = [NSMutableSet setWithCapacity:3];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(transitionToCompletionView:)
+                                                 name:kDidFindAllRequiredTrackables
+                                               object:self];
+    
     // Create the EAGLView
     eaglView = [[BackgroundTextureAccessEAGLView alloc] initWithFrame:viewFrame appSession:vapp];
     eaglView.delegate = self;
@@ -415,11 +428,23 @@ typedef enum {
 }
 
 
+- (void)foundTrackableWithName:(NSString *)name {
+    [self.foundItems addObject:name];
+    if ([self.foundItems count]==3) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDidFindAllRequiredTrackables
+                                                            object:self
+                                                          userInfo:@{@"foundItems":self.foundItems}];
+    }
+}
+
+
 #pragma mark - Delegates
 
 - (void)backgroundTextureView:(id)view addedTrackableWithNames:(NSMutableSet *)trackableNames {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        self.title = [trackableNames anyObject];
+        NSString *name = [trackableNames anyObject];
+        self.title = name;
+        [self foundTrackableWithName:name];
     }];
 }
 
