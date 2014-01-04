@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="wj7-bK-NHk">
-                            <rect key="frame" x="0.0" y="64" width="320" height="268"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="268"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-Kh-grc">
@@ -57,13 +57,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Udf-18-sOd">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="2uF-Zd-9pM">
-                            <connections>
-                                <segue destination="pQc-WZ-Tz5" kind="push" id="U2m-Cw-4R1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Udf-18-sOd"/>
+                    <connections>
+                        <segue destination="pQc-WZ-Tz5" kind="push" identifier="CameraToRedeem" id="C0f-vw-ZiS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vz-N8-Cu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +69,7 @@
         <!--Navigation Controller-->
         <scene sceneID="JAd-bf-uD6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IPb-cQ-Dyr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="IPb-cQ-Dyr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ot5-QB-gR1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

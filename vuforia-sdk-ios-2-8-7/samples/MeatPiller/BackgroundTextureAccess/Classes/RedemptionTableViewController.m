@@ -16,12 +16,15 @@
 
 @implementation RedemptionTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    self = [super initWithCoder:aDecoder];
+    
+    if (self != nil)
+    {
+        
     }
+    
     return self;
 }
 

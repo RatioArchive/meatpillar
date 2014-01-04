@@ -57,14 +57,25 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
     
 }
 
-- (void)transitionToCompletionView:(NSNotification *)object {
-    NSLog(@"transition to completion view");
+- (void)showCongrats:(NSNotification *)object
+{
+    UIButton *redeemButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    redeemButton.frame = CGRectMake(0, 0, 100, 100);
+    [redeemButton setTitle:@"Redeem" forState:UIControlStateNormal];
+    [redeemButton addTarget:self
+                     action:@selector(transitionToCompletionView)
+           forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:redeemButton];
+}
+
+- (void)transitionToCompletionView {
+    [self performSegueWithIdentifier:@"CameraToRedeem" sender:nil];
 }
 
 - (void)loadView {
     self.foundItems = [NSMutableSet setWithCapacity:3];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(transitionToCompletionView:)
+                                             selector:@selector(showCongrats:)
                                                  name:kDidFindAllRequiredTrackables
                                                object:self];
     
@@ -429,11 +440,13 @@ typedef enum {
 
 
 - (void)foundTrackableWithName:(NSString *)name {
+    NSLog(@"%@", name);
     [self.foundItems addObject:name];
     if ([self.foundItems count]==3) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDidFindAllRequiredTrackables
-                                                            object:self
-                                                          userInfo:@{@"foundItems":self.foundItems}];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kDidFindAllRequiredTrackables
+//                                                            object:self
+//                                                          userInfo:@{@"foundItems":self.foundItems}];
+        [self showCongrats:nil];
     }
 }
 
