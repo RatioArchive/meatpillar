@@ -51,6 +51,13 @@
 		376C28161863A55600C015CA /* RTOMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376C28151863A55600C015CA /* RTOMainViewController.m */; };
 		376C281C1864C55300C015CA /* MeatPiller.dat in Resources */ = {isa = PBXBuildFile; fileRef = 376C281A1864C55300C015CA /* MeatPiller.dat */; };
 		376C281D1864C55300C015CA /* MeatPiller.xml in Resources */ = {isa = PBXBuildFile; fileRef = 376C281B1864C55300C015CA /* MeatPiller.xml */; };
+		D8C0F44C1878A26B0069669B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F44B1878A26B0069669B /* Parse.framework */; };
+		D8C0F4501878A29A0069669B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F44D1878A29A0069669B /* AudioToolbox.framework */; };
+		D8C0F4511878A29A0069669B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F44E1878A29A0069669B /* CFNetwork.framework */; };
+		D8C0F4521878A29A0069669B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F44F1878A29A0069669B /* CoreLocation.framework */; };
+		D8C0F4561878A2CB0069669B /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */; };
+		D8C0F4571878A2CB0069669B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */; };
+		D8C0F4581878A2CB0069669B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4551878A2CB0069669B /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +119,13 @@
 		376C28151863A55600C015CA /* RTOMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTOMainViewController.m; path = ../../RTOMainViewController.m; sourceTree = "<group>"; };
 		376C281A1864C55300C015CA /* MeatPiller.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = MeatPiller.dat; sourceTree = "<group>"; };
 		376C281B1864C55300C015CA /* MeatPiller.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MeatPiller.xml; sourceTree = "<group>"; };
+		D8C0F44B1878A26B0069669B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D8C0F44D1878A29A0069669B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D8C0F44E1878A29A0069669B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D8C0F44F1878A29A0069669B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D8C0F4551878A2CB0069669B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,17 +133,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8C0F4561878A2CB0069669B /* libz.1.1.3.dylib in Frameworks */,
+				D8C0F4571878A2CB0069669B /* MobileCoreServices.framework in Frameworks */,
+				D8C0F4581878A2CB0069669B /* StoreKit.framework in Frameworks */,
+				18F794F917F72E5E00C6A8DA /* SystemConfiguration.framework in Frameworks */,
+				D8C0F4501878A29A0069669B /* AudioToolbox.framework in Frameworks */,
+				D8C0F4511878A29A0069669B /* CFNetwork.framework in Frameworks */,
+				D8C0F4521878A29A0069669B /* CoreLocation.framework in Frameworks */,
+				18F7948D17F720CB00C6A8DA /* CoreGraphics.framework in Frameworks */,
 				18F7950117F72E8D00C6A8DA /* QuartzCore.framework in Frameworks */,
 				18F794FF17F72E8300C6A8DA /* Security.framework in Frameworks */,
 				18F794FD17F72E7200C6A8DA /* CoreMotion.framework in Frameworks */,
 				18F794FB17F72E6900C6A8DA /* OpenGLES.framework in Frameworks */,
-				18F794F917F72E5E00C6A8DA /* SystemConfiguration.framework in Frameworks */,
 				18F794F717F72E5400C6A8DA /* AVFoundation.framework in Frameworks */,
+				D8C0F44C1878A26B0069669B /* Parse.framework in Frameworks */,
 				18F794F517F72E4D00C6A8DA /* CoreMedia.framework in Frameworks */,
 				18F794F317F72E4500C6A8DA /* CoreVideo.framework in Frameworks */,
 				18F7948917F720CB00C6A8DA /* UIKit.framework in Frameworks */,
 				18F7948B17F720CB00C6A8DA /* Foundation.framework in Frameworks */,
-				18F7948D17F720CB00C6A8DA /* CoreGraphics.framework in Frameworks */,
 				18F7950317F72F2000C6A8DA /* libQCAR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +187,13 @@
 		18F7948717F720CB00C6A8DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */,
+				D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */,
+				D8C0F4551878A2CB0069669B /* StoreKit.framework */,
+				D8C0F44D1878A29A0069669B /* AudioToolbox.framework */,
+				D8C0F44E1878A29A0069669B /* CFNetwork.framework */,
+				D8C0F44F1878A29A0069669B /* CoreLocation.framework */,
+				D8C0F44B1878A26B0069669B /* Parse.framework */,
 				18F7950217F72F2000C6A8DA /* libQCAR.a */,
 				18F7948817F720CB00C6A8DA /* UIKit.framework */,
 				18F7948A17F720CB00C6A8DA /* Foundation.framework */,
@@ -492,6 +520,10 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CURRENT_PROJECT_VERSION = 8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundTextureAccess/MeatPiller-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -518,6 +550,10 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CURRENT_PROJECT_VERSION = 8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundTextureAccess/MeatPiller-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
