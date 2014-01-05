@@ -27,6 +27,7 @@
 @property (nonatomic) FYXSightingManager *sightingManager;
 @property (nonatomic) FYXVisitManager *visitManager;
 
+
 @end
 
 @implementation RTOTextureAccessViewController

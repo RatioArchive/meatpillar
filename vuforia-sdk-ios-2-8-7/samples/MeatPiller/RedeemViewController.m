@@ -16,6 +16,8 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
 
 - (IBAction)purchaseTapped:(UIButton *)sender;
 
+@property (nonatomic, strong) UIWebView *purchaseWebview;
+
 @end
 
 @implementation RedeemViewController
@@ -33,7 +35,19 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dismissWebview:)
+                                                 name:@"didBuyStuffNotification"
+                                               object:nil];
+
 }
+
+- (void)dismissWebview:(id)object {
+    [self.purchaseWebview removeFromSuperview];
+    [self enableView];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -340,12 +354,13 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
     CGRect windowFrame = self.view.window.frame;
     windowFrame.origin.y -= 124;
     windowFrame.origin.x += 124;
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:windowFrame];
-    webView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-    [self.parentViewController.view addSubview:webView];
+    self.purchaseWebview = [[UIWebView alloc] initWithFrame:windowFrame];
+    self.purchaseWebview.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    [self.parentViewController.view addSubview:self.purchaseWebview];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    [webView loadRequest:request];
+    [self.purchaseWebview loadRequest:request];
+    
     //    [[UIApplication sharedApplication] openURL:url];
 }
 @end
