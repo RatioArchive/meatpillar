@@ -486,9 +486,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		18F7948417F720CB00C6A8DA /* MeatPiller */ = {
+		18F7948417F720CB00C6A8DA /* SmartPoster */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18F794AB17F720CB00C6A8DA /* Build configuration list for PBXNativeTarget "MeatPiller" */;
+			buildConfigurationList = 18F794AB17F720CB00C6A8DA /* Build configuration list for PBXNativeTarget "SmartPoster" */;
 			buildPhases = (
 				18F7948117F720CB00C6A8DA /* Sources */,
 				18F7948217F720CB00C6A8DA /* Frameworks */,
@@ -498,7 +498,7 @@
 			);
 			dependencies = (
 			);
-			name = MeatPiller;
+			name = SmartPoster;
 			productName = BackgroundTextureAccess;
 			productReference = 18F7948517F720CB00C6A8DA /* BgdTexture.app */;
 			productType = "com.apple.product-type.application";
@@ -534,7 +534,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18F7948417F720CB00C6A8DA /* MeatPiller */,
+				18F7948417F720CB00C6A8DA /* SmartPoster */,
 			);
 		};
 /* End PBXProject section */
@@ -671,6 +671,8 @@
 		18F794AC17F720CB00C6A8DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -695,7 +697,7 @@
 					"\"$(SRCROOT)/../../build/lib/arm\"",
 					"../../../build/$(CONFIGURATION)-iphoneos",
 				);
-				PRODUCT_NAME = BgdTexture;
+				PRODUCT_NAME = SmartPoster;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
@@ -705,6 +707,8 @@
 		18F794AD17F720CB00C6A8DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -729,7 +733,7 @@
 					"\"$(SRCROOT)/../../build/lib/arm\"",
 					"../../../build/$(CONFIGURATION)-iphoneos",
 				);
-				PRODUCT_NAME = BgdTexture;
+				PRODUCT_NAME = SmartPoster;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
@@ -748,7 +752,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18F794AB17F720CB00C6A8DA /* Build configuration list for PBXNativeTarget "MeatPiller" */ = {
+		18F794AB17F720CB00C6A8DA /* Build configuration list for PBXNativeTarget "SmartPoster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18F794AC17F720CB00C6A8DA /* Debug */,

@@ -700,13 +700,13 @@ typedef enum {
 {
     NSLog(@"%@", RSSI);
     
-    if ([transmitter.identifier isEqualToString:@"XNWF-5XQC7"] && [RSSI integerValue] > -70)
+    if ([transmitter.identifier isEqualToString:@"XNWF-5XQC7"] && [RSSI integerValue] > -90)
     {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             
             UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"You are near a SmartPoster";
+            notification.alertBody = @"There's a Macklemore poster nearby. Finish the puzzle for 10%% off his album.";
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
             
         });
