@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="Chair" size="152.000000 228.000000" />
-    <ImageTarget name="Giraffe" size="89.000000 188.000000" />
-    <ImageTarget name="Bike" size="155.000000 215.000000" />
+    <ImageTarget name="Chair" size="250.000000 376.893951" />
+    <ImageTarget name="Camera" size="300.000000 188.888885" />
+    <ImageTarget name="Giraffe" size="200.000000 437.974670" />
   </Tracking>
 </QCARConfig>

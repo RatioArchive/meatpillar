@@ -87,30 +87,50 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
     
     [sender showActivity];
     
+    BOOL useRealAPI = NO;
     
-    BOOL isOldAPI = YES;
-    
-    if (isOldAPI) {
-        [self requestAccessTokenCompletion:^(NSString *accessToken) {
-            NSLog(@"access Token %@", accessToken);
-            [self requestNotaryWithAccessToken:accessToken completion:^(NSString *signature, NSString *signedDocument) {
+    if (useRealAPI) {
+        BOOL isOldAPI = YES;
+        
+        if (isOldAPI) {
+            [self requestAccessTokenCompletion:^(NSString *accessToken) {
+                NSLog(@"access Token %@", accessToken);
+                [self requestNotaryWithAccessToken:accessToken completion:^(NSString *signature, NSString *signedDocument) {
+                    NSLog(@"signature %@", signature);
+                    NSLog(@"signedDocument %@", signedDocument);
+                    [self openSafariWithSigniture:signature signedDocument:signedDocument];
+                }];
+            }];
+            
+        } else {
+            [self requestNotaryDaleCompletion:^(NSString *signature, NSString *signedDocument) {
+                NSLog(@"-------------did requestNotaryDaleCompletion--------------------------");
                 NSLog(@"signature %@", signature);
                 NSLog(@"signedDocument %@", signedDocument);
                 [self openSafariWithSigniture:signature signedDocument:signedDocument];
+                
             }];
-        }];
-        
-    } else {
-        [self requestNotaryDaleCompletion:^(NSString *signature, NSString *signedDocument) {
-            NSLog(@"-------------did requestNotaryDaleCompletion--------------------------");
-            NSLog(@"signature %@", signature);
-            NSLog(@"signedDocument %@", signedDocument);
-            [self openSafariWithSigniture:signature signedDocument:signedDocument];
             
-        }];
+        }
+
+    } else {
+        UIImage *acceptImage = [UIImage imageNamed:@"acceptImage"];
+        UIImage *waitingimage = [UIImage imageNamed:@"waitingImage"];
+        UIImage *doneImage = [UIImage imageNamed:@"doneImage"];
         
+        UIButton *purchaseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        purchaseButton.frame = self.view.frame;
+        [purchaseButton addTarget:self action:@selector(acceptButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:purchaseButton];
     }
+    
 }
+
+- (void)acceptButtonAction:(id)button {
+    
+}
+
+
 
 #pragma mark - UITextFieldDelegate
 
