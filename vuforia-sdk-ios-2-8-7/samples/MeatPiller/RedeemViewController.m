@@ -49,7 +49,7 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
     [self enableView];
     [self.purchaseButton hideActivity];
     [self.purchaseButton setTitle:@"Thanks!" forState:UIControlStateNormal];
-    self.purchaseButton.userInteractionEnabled = NO;
+    self.purchaseButton.enabled = NO;
 }
 
 
