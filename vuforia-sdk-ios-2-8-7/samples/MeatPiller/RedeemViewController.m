@@ -1,18 +1,18 @@
 //
-//  RTOMainViewController.m
+//  RedeemViewController.m
 //  MeatPiller
 //
-//  Created by Mark Daneker on 12/19/13.
-//  Copyright (c) 2013 Qualcomm. All rights reserved.
+//  Created by Nathan on 1/4/14.
+//  Copyright (c) 2014 Qualcomm. All rights reserved.
 //
 
-#import "RTOMainViewController.h"
+#import "RedeemViewController.h"
 
-@interface RTOMainViewController ()
+@interface RedeemViewController ()
 
 @end
 
-@implementation RTOMainViewController
+@implementation RedeemViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +34,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

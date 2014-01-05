@@ -19,6 +19,10 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
 
 @implementation RTOTextureAccessViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -59,17 +63,32 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
 
 - (void)showCongrats:(NSNotification *)object
 {
-    UIButton *redeemButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    redeemButton.frame = CGRectMake(0, 0, 100, 100);
-    [redeemButton setTitle:@"Redeem" forState:UIControlStateNormal];
-    [redeemButton addTarget:self
-                     action:@selector(transitionToCompletionView)
-           forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:redeemButton];
-}
-
-- (void)transitionToCompletionView {
-    [self performSegueWithIdentifier:@"CameraToRedeem" sender:nil];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CGRect windowFrame = self.view.window.frame;
+        windowFrame.origin.y -= 124;
+        windowFrame.origin.x += 124;
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone_Storyboard" bundle:nil];
+        UIViewController* congratsViewController = [storyboard instantiateViewControllerWithIdentifier:@"Congrats"];
+        
+        [self addChildViewController:congratsViewController];
+        [self.view addSubview:congratsViewController.view];
+        congratsViewController.view.frame = windowFrame;
+        congratsViewController.view.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        congratsViewController.view.alpha = 0;
+        [congratsViewController didMoveToParentViewController:self];
+        
+        [UIView animateWithDuration:1 animations:^{
+            
+            congratsViewController.view.alpha = 1;
+            
+        } completion:^(BOOL finished) {
+            
+            
+            
+        }];
+    });
 }
 
 - (void)loadView {
@@ -442,9 +461,9 @@ typedef enum {
 - (void)foundTrackableWithName:(NSString *)name {
     NSLog(@"%@", name);
     [self.foundItems addObject:name];
-    if ([self.foundItems count]==3) {
+    if ([self.foundItems count]==2) {
 //        [[NSNotificationCenter defaultCenter] postNotificationName:kDidFindAllRequiredTrackables
-//                                                            object:self
+//                                                             object:self
 //                                                          userInfo:@{@"foundItems":self.foundItems}];
         [self showCongrats:nil];
     }

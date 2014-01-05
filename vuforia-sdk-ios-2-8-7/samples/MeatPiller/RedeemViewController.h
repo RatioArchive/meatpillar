@@ -1,5 +1,5 @@
 //
-//  RedemptionTableViewController.h
+//  RedeemViewController.h
 //  MeatPiller
 //
 //  Created by Nathan on 1/4/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RedemptionTableViewController : UITableViewController
+@interface RedeemViewController : UIViewController
 
 @end

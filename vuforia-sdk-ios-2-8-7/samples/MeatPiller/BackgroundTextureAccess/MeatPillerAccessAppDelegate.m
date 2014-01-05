@@ -13,8 +13,6 @@
 {
     [Parse setApplicationId:@"AM3Ba0uWhovNKUhmkbHbc0HO7TqbamVzFdlJnboi"
                   clientKey:@"y2CIkImxavjwVpPNO2xMQc3SADvmzmeYbO7fj29r"];
-    
-    // add parse stuff here
 
     return YES;
 }

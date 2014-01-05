@@ -48,9 +48,13 @@
 		18F7950A17F7305500C6A8DA /* BackgroundTextureAccessEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F7950717F7305500C6A8DA /* BackgroundTextureAccessEAGLView.mm */; };
 		18F7950B17F7305500C6A8DA /* RTOTextureAccessViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F7950917F7305500C6A8DA /* RTOTextureAccessViewController.mm */; };
 		376C280C18637FB800C015CA /* iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376C280B18637FB800C015CA /* iPhone_Storyboard.storyboard */; };
-		376C28161863A55600C015CA /* RTOMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376C28151863A55600C015CA /* RTOMainViewController.m */; };
 		376C281C1864C55300C015CA /* MeatPiller.dat in Resources */ = {isa = PBXBuildFile; fileRef = 376C281A1864C55300C015CA /* MeatPiller.dat */; };
 		376C281D1864C55300C015CA /* MeatPiller.xml in Resources */ = {isa = PBXBuildFile; fileRef = 376C281B1864C55300C015CA /* MeatPiller.xml */; };
+		D897BC101878D4CD00E12487 /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC0F1878D4CD00E12487 /* RedeemViewController.m */; };
+		D897BC131878D5D200E12487 /* AmaticLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC121878D5D200E12487 /* AmaticLabel.m */; };
+		D897BC141878D78700E12487 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */; };
+		D897BC181878D82900E12487 /* GOTHMLCD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D897BC171878D82900E12487 /* GOTHMLCD.ttf */; };
+		D897BC1B1878D85900E12487 /* GothButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC1A1878D85900E12487 /* GothButton.m */; };
 		D8C0F44C1878A26B0069669B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F44B1878A26B0069669B /* Parse.framework */; };
 		D8C0F4501878A29A0069669B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F44D1878A29A0069669B /* AudioToolbox.framework */; };
 		D8C0F4511878A29A0069669B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F44E1878A29A0069669B /* CFNetwork.framework */; };
@@ -58,7 +62,7 @@
 		D8C0F4561878A2CB0069669B /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */; };
 		D8C0F4571878A2CB0069669B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */; };
 		D8C0F4581878A2CB0069669B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4551878A2CB0069669B /* StoreKit.framework */; };
-		D8C0F45B1878BA580069669B /* RedemptionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0F45A1878BA580069669B /* RedemptionTableViewController.m */; };
+		D8C0F45D1878CE880069669B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C0F45C1878CE880069669B /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,10 +120,16 @@
 		18F7950817F7305500C6A8DA /* RTOTextureAccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTOTextureAccessViewController.h; path = ../apps/BackgroundTextureAccess/RTOTextureAccessViewController.h; sourceTree = "<group>"; };
 		18F7950917F7305500C6A8DA /* RTOTextureAccessViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RTOTextureAccessViewController.mm; path = ../apps/BackgroundTextureAccess/RTOTextureAccessViewController.mm; sourceTree = "<group>"; };
 		376C280B18637FB800C015CA /* iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
-		376C28141863A55600C015CA /* RTOMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTOMainViewController.h; path = ../../RTOMainViewController.h; sourceTree = "<group>"; };
-		376C28151863A55600C015CA /* RTOMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTOMainViewController.m; path = ../../RTOMainViewController.m; sourceTree = "<group>"; };
 		376C281A1864C55300C015CA /* MeatPiller.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = MeatPiller.dat; sourceTree = "<group>"; };
 		376C281B1864C55300C015CA /* MeatPiller.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MeatPiller.xml; sourceTree = "<group>"; };
+		D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		D897BC0E1878D4CD00E12487 /* RedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedeemViewController.h; path = ../../../RedeemViewController.h; sourceTree = "<group>"; };
+		D897BC0F1878D4CD00E12487 /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedeemViewController.m; path = ../../../RedeemViewController.m; sourceTree = "<group>"; };
+		D897BC111878D5D200E12487 /* AmaticLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaticLabel.h; path = ../../../AmaticLabel.h; sourceTree = "<group>"; };
+		D897BC121878D5D200E12487 /* AmaticLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaticLabel.m; path = ../../../AmaticLabel.m; sourceTree = "<group>"; };
+		D897BC171878D82900E12487 /* GOTHMLCD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHMLCD.ttf; sourceTree = "<group>"; };
+		D897BC191878D85900E12487 /* GothButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GothButton.h; path = ../../../GothButton.h; sourceTree = "<group>"; };
+		D897BC1A1878D85900E12487 /* GothButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GothButton.m; path = ../../../GothButton.m; sourceTree = "<group>"; };
 		D8C0F44B1878A26B0069669B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D8C0F44D1878A29A0069669B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D8C0F44E1878A29A0069669B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -127,8 +137,7 @@
 		D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D8C0F4551878A2CB0069669B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		D8C0F4591878BA580069669B /* RedemptionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedemptionTableViewController.h; path = ../RedemptionTableViewController.h; sourceTree = "<group>"; };
-		D8C0F45A1878BA580069669B /* RedemptionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedemptionTableViewController.m; path = ../RedemptionTableViewController.m; sourceTree = "<group>"; };
+		D8C0F45C1878CE880069669B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BackgroundTextureAccess/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +228,9 @@
 				187764FD18038287003F4AD2 /* MeatPillerAccessAppDelegate.h */,
 				187764FE18038287003F4AD2 /* MeatPillerAccessAppDelegate.m */,
 				376C280B18637FB800C015CA /* iPhone_Storyboard.storyboard */,
+				D8C0F45C1878CE880069669B /* Images.xcassets */,
+				D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */,
+				D897BC171878D82900E12487 /* GOTHMLCD.ttf */,
 				18F7950C17F7314E00C6A8DA /* Resources */,
 				18F794C517F7289F00C6A8DA /* Classes */,
 				18F7948F17F720CB00C6A8DA /* Supporting Files */,
@@ -262,12 +274,14 @@
 			children = (
 				18F794CC17F7297600C6A8DA /* SampleAppMenu.h */,
 				18F794CD17F7297600C6A8DA /* SampleAppMenu.m */,
-				376C28141863A55600C015CA /* RTOMainViewController.h */,
-				376C28151863A55600C015CA /* RTOMainViewController.m */,
 				18F7950817F7305500C6A8DA /* RTOTextureAccessViewController.h */,
 				18F7950917F7305500C6A8DA /* RTOTextureAccessViewController.mm */,
-				D8C0F4591878BA580069669B /* RedemptionTableViewController.h */,
-				D8C0F45A1878BA580069669B /* RedemptionTableViewController.m */,
+				D897BC0E1878D4CD00E12487 /* RedeemViewController.h */,
+				D897BC0F1878D4CD00E12487 /* RedeemViewController.m */,
+				D897BC111878D5D200E12487 /* AmaticLabel.h */,
+				D897BC121878D5D200E12487 /* AmaticLabel.m */,
+				D897BC191878D85900E12487 /* GothButton.h */,
+				D897BC1A1878D85900E12487 /* GothButton.m */,
 			);
 			name = UI;
 			path = SampleAppUI;
@@ -403,7 +417,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D897BC141878D78700E12487 /* AmaticSC-Regular.ttf in Resources */,
 				376C281C1864C55300C015CA /* MeatPiller.dat in Resources */,
+				D8C0F45D1878CE880069669B /* Images.xcassets in Resources */,
 				376C280C18637FB800C015CA /* iPhone_Storyboard.storyboard in Resources */,
 				18F7949317F720CB00C6A8DA /* InfoPlist.strings in Resources */,
 				18F7949B17F720CB00C6A8DA /* Default.png in Resources */,
@@ -416,6 +432,7 @@
 				18F794BF17F7224400C6A8DA /* Default-Portrait~ipad.png in Resources */,
 				18F794C417F7243D00C6A8DA /* app_icon_iPhone.png in Resources */,
 				18F794ED17F72A9100C6A8DA /* Line.fragsh in Resources */,
+				D897BC181878D82900E12487 /* GOTHMLCD.ttf in Resources */,
 				18F794EE17F72A9100C6A8DA /* Line.vertsh in Resources */,
 				18F794EF17F72A9100C6A8DA /* Simple.fragsh in Resources */,
 				18F794F017F72A9100C6A8DA /* Simple.vertsh in Resources */,
@@ -436,12 +453,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F7949517F720CB00C6A8DA /* main.m in Sources */,
-				376C28161863A55600C015CA /* RTOMainViewController.m in Sources */,
 				18F794D617F7297600C6A8DA /* SampleAppMenu.m in Sources */,
+				D897BC101878D4CD00E12487 /* RedeemViewController.m in Sources */,
 				18F794EA17F72A9100C6A8DA /* SampleApplicationSession.mm in Sources */,
 				18F794EB17F72A9100C6A8DA /* SampleApplicationShaderUtils.m in Sources */,
-				D8C0F45B1878BA580069669B /* RedemptionTableViewController.m in Sources */,
 				187764FF18038287003F4AD2 /* MeatPillerAccessAppDelegate.m in Sources */,
+				D897BC131878D5D200E12487 /* AmaticLabel.m in Sources */,
+				D897BC1B1878D85900E12487 /* GothButton.m in Sources */,
 				18F794EC17F72A9100C6A8DA /* SampleApplicationUtils.cpp in Sources */,
 				18F794F117F72A9100C6A8DA /* Texture.mm in Sources */,
 				18F7950A17F7305500C6A8DA /* BackgroundTextureAccessEAGLView.mm in Sources */,
