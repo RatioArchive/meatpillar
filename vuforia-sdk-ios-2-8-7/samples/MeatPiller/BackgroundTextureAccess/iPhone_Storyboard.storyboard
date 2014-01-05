@@ -107,6 +107,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="purchaseButton" destination="Yfy-Xa-U1E" id="JyE-sU-K7T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqr-cJ-bbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

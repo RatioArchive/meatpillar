@@ -15,6 +15,7 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
 @interface RedeemViewController () <UITextFieldDelegate, NSURLSessionDelegate>
 
 - (IBAction)purchaseTapped:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet GothButton *purchaseButton;
 
 @property (nonatomic, strong) UIWebView *purchaseWebview;
 
@@ -46,6 +47,9 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
 - (void)dismissWebview:(id)object {
     [self.purchaseWebview removeFromSuperview];
     [self enableView];
+    [self.purchaseButton hideActivity];
+    [self.purchaseButton setTitle:@"Thanks!" forState:UIControlStateNormal];
+    self.purchaseButton.userInteractionEnabled = NO;
 }
 
 
