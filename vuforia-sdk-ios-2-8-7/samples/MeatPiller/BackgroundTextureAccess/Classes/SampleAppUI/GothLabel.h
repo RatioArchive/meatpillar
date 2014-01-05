@@ -1,5 +1,5 @@
 //
-//  GothButton.h
+//  GothLabel.h
 //  MeatPiller
 //
 //  Created by Nathan on 1/4/14.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GothButton : UIButton
-
-- (void)showActivity;
-- (void)hideActivity;
+@interface GothLabel : UILabel
 
 @end

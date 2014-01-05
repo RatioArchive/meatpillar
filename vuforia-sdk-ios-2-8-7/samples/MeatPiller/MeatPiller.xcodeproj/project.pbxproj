@@ -50,7 +50,7 @@
 		376C280C18637FB800C015CA /* iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376C280B18637FB800C015CA /* iPhone_Storyboard.storyboard */; };
 		376C281C1864C55300C015CA /* MeatPiller.dat in Resources */ = {isa = PBXBuildFile; fileRef = 376C281A1864C55300C015CA /* MeatPiller.dat */; };
 		376C281D1864C55300C015CA /* MeatPiller.xml in Resources */ = {isa = PBXBuildFile; fileRef = 376C281B1864C55300C015CA /* MeatPiller.xml */; };
-		D897BC101878D4CD00E12487 /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC0F1878D4CD00E12487 /* RedeemViewController.m */; };
+		D897BC101878D4CD00E12487 /* CongratsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC0F1878D4CD00E12487 /* CongratsViewController.m */; };
 		D897BC131878D5D200E12487 /* AmaticLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC121878D5D200E12487 /* AmaticLabel.m */; };
 		D897BC141878D78700E12487 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */; };
 		D897BC181878D82900E12487 /* GOTHMLCD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D897BC171878D82900E12487 /* GOTHMLCD.ttf */; };
@@ -63,6 +63,9 @@
 		D8C0F4571878A2CB0069669B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */; };
 		D8C0F4581878A2CB0069669B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C0F4551878A2CB0069669B /* StoreKit.framework */; };
 		D8C0F45D1878CE880069669B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C0F45C1878CE880069669B /* Images.xcassets */; };
+		D8F6BCF41878E2B50037243B /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6BCF31878E2B50037243B /* RedeemViewController.m */; };
+		D8F6BCF71878E35C0037243B /* GothLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6BCF61878E35C0037243B /* GothLabel.m */; };
+		D8F6BCFA1878EE880037243B /* GothTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6BCF91878EE880037243B /* GothTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,8 +126,8 @@
 		376C281A1864C55300C015CA /* MeatPiller.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = MeatPiller.dat; sourceTree = "<group>"; };
 		376C281B1864C55300C015CA /* MeatPiller.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MeatPiller.xml; sourceTree = "<group>"; };
 		D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
-		D897BC0E1878D4CD00E12487 /* RedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedeemViewController.h; path = ../../../RedeemViewController.h; sourceTree = "<group>"; };
-		D897BC0F1878D4CD00E12487 /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedeemViewController.m; path = ../../../RedeemViewController.m; sourceTree = "<group>"; };
+		D897BC0E1878D4CD00E12487 /* CongratsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CongratsViewController.h; path = ../../../CongratsViewController.h; sourceTree = "<group>"; };
+		D897BC0F1878D4CD00E12487 /* CongratsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CongratsViewController.m; path = ../../../CongratsViewController.m; sourceTree = "<group>"; };
 		D897BC111878D5D200E12487 /* AmaticLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaticLabel.h; path = ../../../AmaticLabel.h; sourceTree = "<group>"; };
 		D897BC121878D5D200E12487 /* AmaticLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaticLabel.m; path = ../../../AmaticLabel.m; sourceTree = "<group>"; };
 		D897BC171878D82900E12487 /* GOTHMLCD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GOTHMLCD.ttf; sourceTree = "<group>"; };
@@ -138,6 +141,12 @@
 		D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D8C0F4551878A2CB0069669B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D8C0F45C1878CE880069669B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BackgroundTextureAccess/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		D8F6BCF21878E2B50037243B /* RedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedeemViewController.h; path = ../../../RedeemViewController.h; sourceTree = "<group>"; };
+		D8F6BCF31878E2B50037243B /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedeemViewController.m; path = ../../../RedeemViewController.m; sourceTree = "<group>"; };
+		D8F6BCF51878E35C0037243B /* GothLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GothLabel.h; sourceTree = "<group>"; };
+		D8F6BCF61878E35C0037243B /* GothLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GothLabel.m; sourceTree = "<group>"; };
+		D8F6BCF81878EE880037243B /* GothTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GothTextField.h; path = ../../../GothTextField.h; sourceTree = "<group>"; };
+		D8F6BCF91878EE880037243B /* GothTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GothTextField.m; path = ../../../GothTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,12 +285,18 @@
 				18F794CD17F7297600C6A8DA /* SampleAppMenu.m */,
 				18F7950817F7305500C6A8DA /* RTOTextureAccessViewController.h */,
 				18F7950917F7305500C6A8DA /* RTOTextureAccessViewController.mm */,
-				D897BC0E1878D4CD00E12487 /* RedeemViewController.h */,
-				D897BC0F1878D4CD00E12487 /* RedeemViewController.m */,
+				D897BC0E1878D4CD00E12487 /* CongratsViewController.h */,
+				D897BC0F1878D4CD00E12487 /* CongratsViewController.m */,
+				D8F6BCF21878E2B50037243B /* RedeemViewController.h */,
+				D8F6BCF31878E2B50037243B /* RedeemViewController.m */,
 				D897BC111878D5D200E12487 /* AmaticLabel.h */,
 				D897BC121878D5D200E12487 /* AmaticLabel.m */,
 				D897BC191878D85900E12487 /* GothButton.h */,
 				D897BC1A1878D85900E12487 /* GothButton.m */,
+				D8F6BCF51878E35C0037243B /* GothLabel.h */,
+				D8F6BCF61878E35C0037243B /* GothLabel.m */,
+				D8F6BCF81878EE880037243B /* GothTextField.h */,
+				D8F6BCF91878EE880037243B /* GothTextField.m */,
 			);
 			name = UI;
 			path = SampleAppUI;
@@ -454,7 +469,7 @@
 			files = (
 				18F7949517F720CB00C6A8DA /* main.m in Sources */,
 				18F794D617F7297600C6A8DA /* SampleAppMenu.m in Sources */,
-				D897BC101878D4CD00E12487 /* RedeemViewController.m in Sources */,
+				D897BC101878D4CD00E12487 /* CongratsViewController.m in Sources */,
 				18F794EA17F72A9100C6A8DA /* SampleApplicationSession.mm in Sources */,
 				18F794EB17F72A9100C6A8DA /* SampleApplicationShaderUtils.m in Sources */,
 				187764FF18038287003F4AD2 /* MeatPillerAccessAppDelegate.m in Sources */,
@@ -462,8 +477,11 @@
 				D897BC1B1878D85900E12487 /* GothButton.m in Sources */,
 				18F794EC17F72A9100C6A8DA /* SampleApplicationUtils.cpp in Sources */,
 				18F794F117F72A9100C6A8DA /* Texture.mm in Sources */,
+				D8F6BCF71878E35C0037243B /* GothLabel.m in Sources */,
 				18F7950A17F7305500C6A8DA /* BackgroundTextureAccessEAGLView.mm in Sources */,
 				18F7950B17F7305500C6A8DA /* RTOTextureAccessViewController.mm in Sources */,
+				D8F6BCFA1878EE880037243B /* GothTextField.m in Sources */,
+				D8F6BCF41878E2B50037243B /* RedeemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,10 +11,11 @@
 #import <QCAR/CameraDevice.h>
 #import <QCAR/TrackableResult.h>
 
-NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables";
-
 @interface RTOTextureAccessViewController () <BackgroundTextureAccessEAGLDelegate>
 @property (nonatomic, strong) NSMutableSet *foundItems;
+@property (strong, nonatomic) UIImageView *titleImage;
+@property (strong, nonatomic) UIView *congratsView;
+@property (strong, nonatomic) UIView *redeemView;
 @end
 
 @implementation RTOTextureAccessViewController
@@ -22,6 +23,11 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -46,6 +52,12 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
         }
         
         tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(autofocus:)];
+        
+        self.titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title"]];
+        self.titleImage.frame = CGRectMake(-100, 114, 320, 89);
+        self.titleImage.contentMode = UIViewContentModeCenter;
+        self.titleImage.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        [self.view addSubview:self.titleImage];
     }
     return self;
 }
@@ -61,7 +73,7 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
     
 }
 
-- (void)showCongrats:(NSNotification *)object
+- (void)showCongrats
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -69,34 +81,71 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
         windowFrame.origin.y -= 124;
         windowFrame.origin.x += 124;
         
+        UIView *shadowView = [[UIView alloc] initWithFrame:windowFrame];
+        shadowView.backgroundColor = [UIColor blackColor];
+        shadowView.alpha = 0;
+        shadowView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        [self.view insertSubview:shadowView belowSubview:self.titleImage];
+        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone_Storyboard" bundle:nil];
         UIViewController* congratsViewController = [storyboard instantiateViewControllerWithIdentifier:@"Congrats"];
+        self.congratsView = congratsViewController.view;
         
         [self addChildViewController:congratsViewController];
-        [self.view addSubview:congratsViewController.view];
-        congratsViewController.view.frame = windowFrame;
-        congratsViewController.view.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-        congratsViewController.view.alpha = 0;
+        [self.view insertSubview:self.congratsView belowSubview:self.titleImage];
+        self.congratsView.frame = windowFrame;
+        self.congratsView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        self.congratsView.alpha = 0;
         [congratsViewController didMoveToParentViewController:self];
         
-        [UIView animateWithDuration:1 animations:^{
+        [UIView animateWithDuration:.5 animations:^{
             
-            congratsViewController.view.alpha = 1;
+            shadowView.alpha = .7;
+            self.congratsView.alpha = 1;
             
-        } completion:^(BOOL finished) {
-            
-            
-            
-        }];
+        } completion:nil];
     });
+}
+
+- (void)showRedeem
+{
+    CGRect windowFrame = self.view.window.frame;
+    windowFrame.origin.y -= 124;
+    windowFrame.origin.x += 124;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone_Storyboard" bundle:nil];
+    UIViewController* redeemViewController = [storyboard instantiateViewControllerWithIdentifier:@"Redeem"];
+    self.redeemView = redeemViewController.view;
+    
+    [self addChildViewController:redeemViewController];
+    [self.view insertSubview:self.redeemView belowSubview:self.titleImage];
+    self.redeemView.frame = CGRectMake(windowFrame.origin.x + 380, windowFrame.origin.y, windowFrame.size.width, windowFrame.size.height);
+    self.redeemView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    [redeemViewController didMoveToParentViewController:self];
+    
+    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        CGRect frame = self.congratsView.frame;
+        frame.origin.x += CGRectGetHeight(self.view.window.frame);
+        self.congratsView.frame = frame;
+        
+    } completion:nil];
+    
+    [UIView animateKeyframesWithDuration:.5 delay:.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        CGRect frame = self.redeemView.frame;
+        frame.origin.x = self.view.window.frame.origin.x;
+        self.redeemView.frame = frame;
+        
+    } completion:nil];
 }
 
 - (void)loadView {
     self.foundItems = [NSMutableSet setWithCapacity:3];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showCongrats:)
-                                                 name:kDidFindAllRequiredTrackables
-                                               object:self];
+                                             selector:@selector(showRedeem)
+                                                 name:@"ShowRedeem"
+                                               object:nil];
     
     // Create the EAGLView
     eaglView = [[BackgroundTextureAccessEAGLView alloc] initWithFrame:viewFrame appSession:vapp];
@@ -142,8 +191,6 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
                           SampleAppMenu * menu = [SampleAppMenu instance];
                           [menu setSelectionValueForCommand:C_FLASH value:false];
                       } ];
-    
-
 }
 
 - (void)viewDidLoad
@@ -158,6 +205,12 @@ NSString *const kDidFindAllRequiredTrackables = @"kDidFindAllRequiredTrackables"
 //    [self.view addGestureRecognizer:tapGestureRecognizer];
     
     NSLog(@"self.navigationController.navigationBarHidden:%d",self.navigationController.navigationBarHidden);
+    
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self showCongrats];
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -462,10 +515,7 @@ typedef enum {
     NSLog(@"%@", name);
     [self.foundItems addObject:name];
     if ([self.foundItems count]==2) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kDidFindAllRequiredTrackables
-//                                                             object:self
-//                                                          userInfo:@{@"foundItems":self.foundItems}];
-        [self showCongrats:nil];
+        [self showCongrats];
     }
 }
 

@@ -7,7 +7,12 @@
 //
 
 #import "GothButton.h"
-#import <QuartzCore/QuartzCore.h>
+
+@interface GothButton ()
+
+@property (strong, nonatomic) UIActivityIndicatorView *activityView;
+
+@end
 
 @implementation GothButton
 
@@ -27,6 +32,23 @@
     self.titleLabel.layer.shadowRadius = 1.0;
     self.titleLabel.layer.shadowOpacity = 0.25;
     self.titleLabel.layer.shadowOffset = CGSizeMake(0, 1);
+}
+
+- (void)showActivity
+{
+    self.titleLabel.alpha = 0;
+    
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.activityView setCenter:CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))];
+    [self.activityView startAnimating];
+    [self addSubview:self.activityView];
+}
+
+- (void)hideActivity
+{
+    self.titleLabel.alpha = 1;
+    
+    [self.activityView removeFromSuperview];
 }
 
 /*

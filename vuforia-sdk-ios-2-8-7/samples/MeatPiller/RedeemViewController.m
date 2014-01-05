@@ -7,8 +7,11 @@
 //
 
 #import "RedeemViewController.h"
+#import "GothButton.h"
 
-@interface RedeemViewController ()
+@interface RedeemViewController () <UITextFieldDelegate>
+
+- (IBAction)purchaseTapped:(UIButton *)sender;
 
 @end
 
@@ -35,4 +38,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)disableView
+{
+    for (id view in [self.view subviews])
+    {
+        if ([view isKindOfClass:[UIButton class]] || [view isKindOfClass:[UITextField class]])
+        {
+            [view setEnabled:NO];
+        }
+    }
+}
+
+- (void)enableView
+{
+    for (id view in [self.view subviews])
+    {
+        if ([view isKindOfClass:[UIButton class]] || [view isKindOfClass:[UITextField class]])
+        {
+            [view setEnabled:YES];
+        }
+    }
+}
+
+- (IBAction)purchaseTapped:(GothButton *)sender
+{
+    [self disableView];
+    
+    [sender showActivity];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 @end
