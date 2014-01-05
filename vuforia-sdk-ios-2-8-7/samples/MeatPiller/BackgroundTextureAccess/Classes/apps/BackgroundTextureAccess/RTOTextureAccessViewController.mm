@@ -586,7 +586,7 @@ typedef enum {
         {
             if ([name isEqualToString:@"Giraffe"])
             {
-                self.progressTrackerLabel.text = @"Find the next.";
+                self.progressTrackerLabel.text = @"Find the Chair.";
                 
                 [self animateDot];
                 
@@ -596,9 +596,9 @@ typedef enum {
             break;
         case 2:
         {
-            if ([name isEqualToString:@"Giraffe"])
+            if ([name isEqualToString:@"Chair"])
             {
-                self.progressTrackerLabel.text = @"Find the next.";
+                self.progressTrackerLabel.text = @"Find the Bin.";
                 
                 [self animateDot];
                 
@@ -608,7 +608,7 @@ typedef enum {
             break;
         case 3:
         {
-            if ([name isEqualToString:@"Giraffe"])
+            if ([name isEqualToString:@"Bin"])
             {
                 [self animateDot];
                 
