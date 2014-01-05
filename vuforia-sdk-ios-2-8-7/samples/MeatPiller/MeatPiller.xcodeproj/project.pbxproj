@@ -678,11 +678,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/Common.embeddedframework",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextCore.embeddedframework",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextLocation.embeddedframework",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/NetworkServices.embeddedframework",
+					"$(SRCROOT)/Common.embeddedframework",
+					"$(SRCROOT)/ContextCore.embeddedframework",
+					"$(SRCROOT)/ContextLocation.embeddedframework",
+					"$(SRCROOT)/NetworkServices.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundTextureAccess/MeatPiller-Prefix.pch";
@@ -713,11 +712,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/Common.embeddedframework",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextCore.embeddedframework",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextLocation.embeddedframework",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller",
-					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/NetworkServices.embeddedframework",
+					"$(SRCROOT)/Common.embeddedframework",
+					"$(SRCROOT)/ContextCore.embeddedframework",
+					"$(SRCROOT)/ContextLocation.embeddedframework",
+					"$(SRCROOT)/NetworkServices.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundTextureAccess/MeatPiller-Prefix.pch";
