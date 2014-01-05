@@ -11,8 +11,12 @@
 #import <QCAR/CameraDevice.h>
 #import <QCAR/TrackableResult.h>
 #import "GothLabel.h"
+#import <FYX/FYX.h>
+#import <FYX/FYXSightingManager.h>
+#import <FYX/FYXVisitManager.h>
+#import <FYX/FYXTransmitter.h>
 
-@interface RTOTextureAccessViewController () <BackgroundTextureAccessEAGLDelegate>
+@interface RTOTextureAccessViewController () <BackgroundTextureAccessEAGLDelegate, FYXServiceDelegate, FYXSightingDelegate, FYXVisitDelegate>
 @property (nonatomic, strong) NSMutableSet *foundItems;
 @property (strong, nonatomic) UIImageView *titleImage;
 @property (strong, nonatomic) UIView *congratsView;
@@ -20,6 +24,8 @@
 @property (strong, nonatomic) UIView *progressTrackerView;
 @property (strong, nonatomic) GothLabel *progressTrackerLabel;
 @property (assign, nonatomic) NSInteger currentStep;
+@property (nonatomic) FYXSightingManager *sightingManager;
+@property (nonatomic) FYXVisitManager *visitManager;
 
 @end
 
@@ -277,6 +283,7 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 //        [self showCongrats];
         [self showProgressTracker];
+        [FYX startService:self];
     });
 }
 
@@ -612,11 +619,6 @@ typedef enum {
         default:
             break;
     }
-    
-//    [self.foundItems addObject:name];
-//    if ([self.foundItems count]==3) {
-//        [self showCongrats];
-//    }
 }
 
 - (void)animateDot
@@ -673,6 +675,54 @@ typedef enum {
         self.title = nameString;
     }];
     
+}
+
+#pragma mark - FYXServiceDelegate
+
+- (void)serviceStarted
+{
+    // this will be invoked if the service has successfully started
+    // bluetooth scanning will be started at this point.
+    NSLog(@"FYX Service Successfully Started");
+    
+    self.sightingManager = [FYXSightingManager new];
+    self.sightingManager.delegate = self;
+    [self.sightingManager scan];
+    
+//    self.visitManager = [FYXVisitManager new];
+//    self.visitManager.delegate = self;
+//    [self.visitManager start];
+}
+
+#pragma mark - FYXSightingDelegate
+
+- (void)didReceiveSighting:(FYXTransmitter *)transmitter time:(NSDate *)time RSSI:(NSNumber *)RSSI
+{
+    NSLog(@"%@", RSSI);
+    
+    if ([transmitter.identifier isEqualToString:@"XNWF-5XQC7"] && [RSSI integerValue] > -60)
+    {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"You are near a SmartPoster";
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            
+        });
+    }
+}
+
+#pragma mark - FYXVisitDelegate
+
+- (void)didArrive:(FYXVisit *)visit
+{
+    NSLog(@"%@ arrived\n%@ start time", visit.transmitter.name, visit.startTime);
+}
+
+- (void)didDepart:(FYXVisit *)visit
+{
+    NSLog(@"%@ departed\n%f dwell time", visit.transmitter.name, visit.dwellTime);
 }
 
 @end

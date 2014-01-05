@@ -66,6 +66,11 @@
 		<string>AmaticSC-Regular.ttf</string>
 		<string>GOTHMLCD.ttf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>location</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>iPhone_Storyboard</string>
 	<key>UIPrerenderedIcon</key>

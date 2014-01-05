@@ -66,6 +66,16 @@
 		D8F6BCF41878E2B50037243B /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6BCF31878E2B50037243B /* RedeemViewController.m */; };
 		D8F6BCF71878E35C0037243B /* GothLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6BCF61878E35C0037243B /* GothLabel.m */; };
 		D8F6BCFA1878EE880037243B /* GothTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6BCF91878EE880037243B /* GothTextField.m */; };
+		D8F6BD111879335E0037243B /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD041879335E0037243B /* Common.framework */; };
+		D8F6BD121879335E0037243B /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD071879335E0037243B /* ContextCore.framework */; };
+		D8F6BD131879335E0037243B /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD0A1879335E0037243B /* ContextLocation.framework */; };
+		D8F6BD141879335E0037243B /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8F6BD0C1879335E0037243B /* DataModels.bundle */; };
+		D8F6BD151879335E0037243B /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD0D1879335E0037243B /* FYX.framework */; };
+		D8F6BD161879335E0037243B /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD0F1879335E0037243B /* NetworkServices.framework */; };
+		D8F6BD181879350D0037243B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD171879350D0037243B /* CoreData.framework */; };
+		D8F6BD1A187935450037243B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD19187935450037243B /* libz.dylib */; };
+		D8F6BD1C187935720037243B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD1B187935720037243B /* MapKit.framework */; };
+		D8F6BD1E187935870037243B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6BD1D187935870037243B /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +157,16 @@
 		D8F6BCF61878E35C0037243B /* GothLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GothLabel.m; sourceTree = "<group>"; };
 		D8F6BCF81878EE880037243B /* GothTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GothTextField.h; path = ../../../GothTextField.h; sourceTree = "<group>"; };
 		D8F6BCF91878EE880037243B /* GothTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GothTextField.m; path = ../../../GothTextField.m; sourceTree = "<group>"; };
+		D8F6BD041879335E0037243B /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
+		D8F6BD071879335E0037243B /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
+		D8F6BD0A1879335E0037243B /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
+		D8F6BD0C1879335E0037243B /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
+		D8F6BD0D1879335E0037243B /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
+		D8F6BD0F1879335E0037243B /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
+		D8F6BD171879350D0037243B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D8F6BD19187935450037243B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D8F6BD1B187935720037243B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D8F6BD1D187935870037243B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +174,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F6BD1E187935870037243B /* CoreBluetooth.framework in Frameworks */,
+				D8F6BD1C187935720037243B /* MapKit.framework in Frameworks */,
+				D8F6BD1A187935450037243B /* libz.dylib in Frameworks */,
+				D8F6BD181879350D0037243B /* CoreData.framework in Frameworks */,
 				D8C0F4561878A2CB0069669B /* libz.1.1.3.dylib in Frameworks */,
 				D8C0F4571878A2CB0069669B /* MobileCoreServices.framework in Frameworks */,
 				D8C0F4581878A2CB0069669B /* StoreKit.framework in Frameworks */,
@@ -164,13 +188,18 @@
 				18F7948D17F720CB00C6A8DA /* CoreGraphics.framework in Frameworks */,
 				18F7950117F72E8D00C6A8DA /* QuartzCore.framework in Frameworks */,
 				18F794FF17F72E8300C6A8DA /* Security.framework in Frameworks */,
+				D8F6BD151879335E0037243B /* FYX.framework in Frameworks */,
+				D8F6BD121879335E0037243B /* ContextCore.framework in Frameworks */,
+				D8F6BD131879335E0037243B /* ContextLocation.framework in Frameworks */,
 				18F794FD17F72E7200C6A8DA /* CoreMotion.framework in Frameworks */,
 				18F794FB17F72E6900C6A8DA /* OpenGLES.framework in Frameworks */,
 				18F794F717F72E5400C6A8DA /* AVFoundation.framework in Frameworks */,
 				D8C0F44C1878A26B0069669B /* Parse.framework in Frameworks */,
 				18F794F517F72E4D00C6A8DA /* CoreMedia.framework in Frameworks */,
 				18F794F317F72E4500C6A8DA /* CoreVideo.framework in Frameworks */,
+				D8F6BD161879335E0037243B /* NetworkServices.framework in Frameworks */,
 				18F7948917F720CB00C6A8DA /* UIKit.framework in Frameworks */,
+				D8F6BD111879335E0037243B /* Common.framework in Frameworks */,
 				18F7948B17F720CB00C6A8DA /* Foundation.framework in Frameworks */,
 				18F7950317F72F2000C6A8DA /* libQCAR.a in Frameworks */,
 			);
@@ -208,6 +237,15 @@
 		18F7948717F720CB00C6A8DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8F6BD1D187935870037243B /* CoreBluetooth.framework */,
+				D8F6BD1B187935720037243B /* MapKit.framework */,
+				D8F6BD19187935450037243B /* libz.dylib */,
+				D8F6BD171879350D0037243B /* CoreData.framework */,
+				D8F6BD031879335E0037243B /* Common.embeddedframework */,
+				D8F6BD061879335E0037243B /* ContextCore.embeddedframework */,
+				D8F6BD091879335E0037243B /* ContextLocation.embeddedframework */,
+				D8F6BD0D1879335E0037243B /* FYX.framework */,
+				D8F6BD0E1879335E0037243B /* NetworkServices.embeddedframework */,
 				D8C0F4531878A2CB0069669B /* libz.1.1.3.dylib */,
 				D8C0F4541878A2CB0069669B /* MobileCoreServices.framework */,
 				D8C0F4551878A2CB0069669B /* StoreKit.framework */,
@@ -380,6 +418,71 @@
 			path = BackgroundTextureAccess;
 			sourceTree = "<group>";
 		};
+		D8F6BD031879335E0037243B /* Common.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				D8F6BD041879335E0037243B /* Common.framework */,
+				D8F6BD051879335E0037243B /* Resources */,
+			);
+			path = Common.embeddedframework;
+			sourceTree = "<group>";
+		};
+		D8F6BD051879335E0037243B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8F6BD061879335E0037243B /* ContextCore.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				D8F6BD071879335E0037243B /* ContextCore.framework */,
+				D8F6BD081879335E0037243B /* Resources */,
+			);
+			path = ContextCore.embeddedframework;
+			sourceTree = "<group>";
+		};
+		D8F6BD081879335E0037243B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8F6BD091879335E0037243B /* ContextLocation.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				D8F6BD0A1879335E0037243B /* ContextLocation.framework */,
+				D8F6BD0B1879335E0037243B /* Resources */,
+			);
+			path = ContextLocation.embeddedframework;
+			sourceTree = "<group>";
+		};
+		D8F6BD0B1879335E0037243B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8F6BD0C1879335E0037243B /* DataModels.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8F6BD0E1879335E0037243B /* NetworkServices.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				D8F6BD0F1879335E0037243B /* NetworkServices.framework */,
+				D8F6BD101879335E0037243B /* Resources */,
+			);
+			path = NetworkServices.embeddedframework;
+			sourceTree = "<group>";
+		};
+		D8F6BD101879335E0037243B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -409,6 +512,15 @@
 				CLASSPREFIX = SampleApp;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Qualcomm;
+				TargetAttributes = {
+					18F7948417F720CB00C6A8DA = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 18F7948017F720CB00C6A8DA /* Build configuration list for PBXProject "MeatPiller" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -449,6 +561,7 @@
 				18F794ED17F72A9100C6A8DA /* Line.fragsh in Resources */,
 				D897BC181878D82900E12487 /* GOTHMLCD.ttf in Resources */,
 				18F794EE17F72A9100C6A8DA /* Line.vertsh in Resources */,
+				D8F6BD141879335E0037243B /* DataModels.bundle in Resources */,
 				18F794EF17F72A9100C6A8DA /* Simple.fragsh in Resources */,
 				18F794F017F72A9100C6A8DA /* Simple.vertsh in Resources */,
 				185993E817FB44AC00D5A49F /* TextureTeapotRed.png in Resources */,
@@ -565,6 +678,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/Common.embeddedframework",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextCore.embeddedframework",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextLocation.embeddedframework",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/NetworkServices.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundTextureAccess/MeatPiller-Prefix.pch";
@@ -595,6 +713,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/Common.embeddedframework",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextCore.embeddedframework",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/ContextLocation.embeddedframework",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller",
+					"/Users/Nathan/Develop/cocoa/meatpillar/vuforia-sdk-ios-2-8-7/samples/MeatPiller/NetworkServices.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BackgroundTextureAccess/MeatPiller-Prefix.pch";
