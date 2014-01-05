@@ -700,7 +700,7 @@ typedef enum {
 {
     NSLog(@"%@", RSSI);
     
-    if ([transmitter.identifier isEqualToString:@"XNWF-5XQC7"] && [RSSI integerValue] > -60)
+    if ([transmitter.identifier isEqualToString:@"XNWF-5XQC7"] && [RSSI integerValue] > -70)
     {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
