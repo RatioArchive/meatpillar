@@ -624,7 +624,7 @@ typedef enum {
 
 - (void)animateDot
 {
-    UIColor *green = [UIColor colorWithRed:50.0/255.0 green:204.0/255.0 blue:89.0/255.0 alpha:1];
+    UIColor *green = [UIColor colorWithRed:33.0/255.0 green:230.0/255.0 blue:186.0/255.0 alpha:1];
     
     UIView *bigGreen = [[UIView alloc] initWithFrame:[[self.progressTrackerView viewWithTag:self.currentStep] frame]];
     bigGreen.layer.cornerRadius = CGRectGetWidth(bigGreen.frame)/2;

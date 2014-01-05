@@ -235,7 +235,7 @@
 		18F7948617F720CB00C6A8DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18F7948517F720CB00C6A8DA /* BgdTexture.app */,
+				18F7948517F720CB00C6A8DA /* SmartPoster.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 			);
 			name = SmartPoster;
 			productName = BackgroundTextureAccess;
-			productReference = 18F7948517F720CB00C6A8DA /* BgdTexture.app */;
+			productReference = 18F7948517F720CB00C6A8DA /* SmartPoster.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

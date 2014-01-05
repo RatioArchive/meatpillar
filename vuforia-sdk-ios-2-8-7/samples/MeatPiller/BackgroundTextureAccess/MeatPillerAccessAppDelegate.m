@@ -52,6 +52,8 @@
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didBuyStuffNotification" object:self];
+    
+    return YES;
 }
 
 @end
