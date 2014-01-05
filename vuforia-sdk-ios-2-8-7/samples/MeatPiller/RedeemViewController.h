@@ -10,4 +10,7 @@
 
 @interface RedeemViewController : UIViewController
 
+extern NSString *const kPurchaseAppKey;
+extern NSString *const kPurchaseAppSecret;
+
 @end
