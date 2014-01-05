@@ -115,33 +115,53 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
         }
 
     } else {
-        UIImage *acceptImage = [UIImage imageNamed:@"acceptImage"];
-        
-        self.flowButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.flowButton.frame = self.view.frame;
-        [self.flowButton addTarget:self action:@selector(acceptButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.flowButton setImage:acceptImage forState:UIControlStateNormal];
-        [self.view addSubview:self.flowButton];
+        // Used for flow when
+        [self performSelector:@selector(showAcceptScreenFlow) withObject:nil afterDelay:1.0f];
     }
     
 }
 
 
+
+
 #pragma mark - Used for presentation where wifi stops the att purchase flow turn on |useRealAPI| to see it working
+
+- (void)showAcceptScreenFlow {
+    UIImage *acceptImage = [UIImage imageNamed:@"acceptImage"];
+    
+    CGRect windowFrame = self.view.window.frame;
+    windowFrame.origin.y -= 124;
+    windowFrame.origin.x += 124;
+    self.flowButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.flowButton.frame = windowFrame;
+    self.flowButton.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    self.flowButton.adjustsImageWhenHighlighted = YES;
+    
+    [self.flowButton addTarget:self action:@selector(acceptButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.flowButton setImage:acceptImage forState:UIControlStateNormal];
+    [self.parentViewController.view addSubview:self.flowButton];
+}
+
+
 - (void)acceptButtonAction:(UIButton *)button {
     UIImage *waitingimage = [UIImage imageNamed:@"waitingImage"];
     [self.flowButton setImage:waitingimage forState:UIControlStateNormal];
-    [self performSelector:@selector(purchaseDoneWaiting) withObject:nil afterDelay:1.0f];
+    [self performSelector:@selector(purchaseDoneWaiting) withObject:nil afterDelay:2.0f];
 }
 
 - (void)purchaseDoneWaiting {
     UIImage *doneImage = [UIImage imageNamed:@"doneImage"];
     [self.flowButton setImage:doneImage forState:UIControlStateNormal];
-    [self performSelector:@selector(dismissPurchaseFlow) withObject:nil afterDelay:3.0f];
+    [self performSelector:@selector(dismissPurchaseFlow) withObject:nil afterDelay:4.0f];
 }
 
 - (void)dismissPurchaseFlow {
     [self.flowButton removeFromSuperview];
+    [self enableView];
+    [self.purchaseButton hideActivity];
+    [self.purchaseButton setTitle:@"Thanks!" forState:UIControlStateNormal];
+    self.purchaseButton.enabled = NO;
+    
 }
 
 
