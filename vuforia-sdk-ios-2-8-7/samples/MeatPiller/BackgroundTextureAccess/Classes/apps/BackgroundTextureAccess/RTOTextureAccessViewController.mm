@@ -10,12 +10,17 @@
 #import <QCAR/DataSet.h>
 #import <QCAR/CameraDevice.h>
 #import <QCAR/TrackableResult.h>
+#import "GothLabel.h"
 
 @interface RTOTextureAccessViewController () <BackgroundTextureAccessEAGLDelegate>
 @property (nonatomic, strong) NSMutableSet *foundItems;
 @property (strong, nonatomic) UIImageView *titleImage;
 @property (strong, nonatomic) UIView *congratsView;
 @property (strong, nonatomic) UIView *redeemView;
+@property (strong, nonatomic) UIView *progressTrackerView;
+@property (strong, nonatomic) GothLabel *progressTrackerLabel;
+@property (assign, nonatomic) NSInteger currentStep;
+
 @end
 
 @implementation RTOTextureAccessViewController
@@ -53,11 +58,13 @@
         
         tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(autofocus:)];
         
-        self.titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title"]];
-        self.titleImage.frame = CGRectMake(-100, 114, 320, 89);
-        self.titleImage.contentMode = UIViewContentModeCenter;
-        self.titleImage.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-        [self.view addSubview:self.titleImage];
+        _titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title"]];
+        _titleImage.frame = CGRectMake(-100, 114, 320, 89);
+        _titleImage.contentMode = UIViewContentModeCenter;
+        _titleImage.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        [self.view addSubview:_titleImage];
+        
+        _currentStep = 1;
     }
     return self;
 }
@@ -71,6 +78,51 @@
     self.backgroundObserver = nil;
     self.activeObserver = nil;
     
+}
+
+- (void)showProgressTracker
+{
+    NSUInteger viewHeight = 120;
+    
+    CGRect windowFrame = self.view.window.frame;
+    windowFrame.origin.y -= 100;
+    windowFrame.origin.x += 100;
+    
+    self.progressTrackerView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxY(windowFrame)-viewHeight,
+                                                                        windowFrame.origin.x,
+                                                                        320,
+                                                                        viewHeight)];
+    self.progressTrackerView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.7];
+    self.progressTrackerView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    [self.view insertSubview:self.progressTrackerView belowSubview:self.titleImage];
+    
+    self.progressTrackerLabel = [[GothLabel alloc] initWithFrame:CGRectMake(0, 20, 320, 22)];
+    self.progressTrackerLabel.text = @"Find the giraffe.";
+    self.progressTrackerLabel.textColor = [UIColor whiteColor];
+    self.progressTrackerLabel.textAlignment = NSTextAlignmentCenter;
+    self.progressTrackerLabel.font = [UIFont fontWithName:self.progressTrackerLabel.font.fontName size:20];
+    [self.progressTrackerView addSubview:self.progressTrackerLabel];
+    
+    for (NSInteger i = 0; i < 3; i++)
+    {
+        UIButton *progressButton = [[UIButton alloc] initWithFrame:CGRectMake(50 + (i * 90), 60, 40, 40)];
+        progressButton.layer.cornerRadius = CGRectGetWidth(progressButton.frame)/2;
+        progressButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+        progressButton.layer.borderWidth = 1;
+        [progressButton setTitle:[NSString stringWithFormat:@"%d", i+1] forState:UIControlStateNormal];
+        progressButton.tag = i+1;
+        [self.progressTrackerView addSubview:progressButton];
+        
+    }
+    
+    [UIView animateWithDuration:.5 delay:0 options:0 animations:^{
+        
+//        self.progressTrackerView.frame = CGRectMake(CGRectGetMaxY(windowFrame) - viewHeight,
+//                                                    windowFrame.origin.x,
+//                                                    320,
+//                                                    viewHeight);
+        
+    } completion:nil ];
 }
 
 - (void)showCongrats
@@ -98,12 +150,21 @@
         self.congratsView.alpha = 0;
         [congratsViewController didMoveToParentViewController:self];
         
-        [UIView animateWithDuration:.5 animations:^{
+        [UIView animateWithDuration:.5 delay:1 options:0 animations:^{
             
-            shadowView.alpha = .7;
-            self.congratsView.alpha = 1;
+            self.progressTrackerView.center = CGPointMake(self.progressTrackerView.center.x + 120,
+                                                          self.progressTrackerView.center.y);
             
-        } completion:nil];
+        } completion:^(BOOL finished) {
+            
+            [UIView animateWithDuration:.5 animations:^{
+                
+                shadowView.alpha = .7;
+                self.congratsView.alpha = 1;
+                
+            }];
+            
+        }];
     });
 }
 
@@ -203,14 +264,6 @@
   // Do any additional setup after loading the view.
 //    [self.navigationController setNavigationBarHidden:YES animated:NO];
 //    [self.view addGestureRecognizer:tapGestureRecognizer];
-    
-    NSLog(@"self.navigationController.navigationBarHidden:%d",self.navigationController.navigationBarHidden);
-    
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self showCongrats];
-    });
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -218,6 +271,13 @@
     [super viewWillAppear:animated];
     // make sure we're oriented/sized properly before reappearing/restarting
     [self handleARViewRotation:self.interfaceOrientation];
+    
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        [self showCongrats];
+        [self showProgressTracker];
+    });
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -510,13 +570,77 @@ typedef enum {
     return result;
 }
 
-
-- (void)foundTrackableWithName:(NSString *)name {
-    NSLog(@"%@", name);
-    [self.foundItems addObject:name];
-    if ([self.foundItems count]==2) {
-        [self showCongrats];
+- (void)foundTrackableWithName:(NSString *)name
+{
+    switch (self.currentStep)
+    {
+        case 1:
+        {
+            if ([name isEqualToString:@"Giraffe"])
+            {
+                self.progressTrackerLabel.text = @"Find the next.";
+                
+                [self animateDot];
+                
+                self.currentStep = 2;
+            }
+        }
+            break;
+        case 2:
+        {
+            if ([name isEqualToString:@"Giraffe"])
+            {
+                self.progressTrackerLabel.text = @"Find the next.";
+                
+                [self animateDot];
+                
+                self.currentStep = 3;
+            }
+        }
+            break;
+        case 3:
+        {
+            if ([name isEqualToString:@"Giraffe"])
+            {
+                [self animateDot];
+                
+                [self showCongrats];
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
+    
+//    [self.foundItems addObject:name];
+//    if ([self.foundItems count]==3) {
+//        [self showCongrats];
+//    }
+}
+
+- (void)animateDot
+{
+    UIColor *green = [UIColor colorWithRed:50.0/255.0 green:204.0/255.0 blue:89.0/255.0 alpha:1];
+    
+    UIView *bigGreen = [[UIView alloc] initWithFrame:[[self.progressTrackerView viewWithTag:self.currentStep] frame]];
+    bigGreen.layer.cornerRadius = CGRectGetWidth(bigGreen.frame)/2;
+    bigGreen.backgroundColor = green;
+    [self.progressTrackerView insertSubview:bigGreen belowSubview:[self.progressTrackerView viewWithTag:self.currentStep]];
+    
+    [UIView animateWithDuration:.4 animations:^{
+        
+        bigGreen.transform = CGAffineTransformMakeScale(10, 10);
+        bigGreen.alpha = 0;
+        
+        [(UIButton *)[self.progressTrackerView viewWithTag:self.currentStep] setBackgroundColor:green];
+        [[(UIButton *)[self.progressTrackerView viewWithTag:self.currentStep] layer] setBorderWidth:0];
+        
+    } completion:^(BOOL finished) {
+        
+        [bigGreen removeFromSuperview];
+        
+    }];
 }
 
 
