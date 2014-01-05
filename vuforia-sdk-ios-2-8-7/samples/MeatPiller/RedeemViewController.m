@@ -16,6 +16,7 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
 
 - (IBAction)purchaseTapped:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet GothButton *purchaseButton;
+@property (nonatomic, strong) UIButton *flowButton;
 
 @property (nonatomic, strong) UIWebView *purchaseWebview;
 
@@ -115,21 +116,33 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
 
     } else {
         UIImage *acceptImage = [UIImage imageNamed:@"acceptImage"];
-        UIImage *waitingimage = [UIImage imageNamed:@"waitingImage"];
-        UIImage *doneImage = [UIImage imageNamed:@"doneImage"];
         
-        UIButton *purchaseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        purchaseButton.frame = self.view.frame;
-        [purchaseButton addTarget:self action:@selector(acceptButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:purchaseButton];
+        self.flowButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.flowButton.frame = self.view.frame;
+        [self.flowButton addTarget:self action:@selector(acceptButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.flowButton setImage:acceptImage forState:UIControlStateNormal];
+        [self.view addSubview:self.flowButton];
     }
     
 }
 
-- (void)acceptButtonAction:(id)button {
-    
+
+#pragma mark - Used for presentation where wifi stops the att purchase flow turn on |useRealAPI| to see it working
+- (void)acceptButtonAction:(UIButton *)button {
+    UIImage *waitingimage = [UIImage imageNamed:@"waitingImage"];
+    [self.flowButton setImage:waitingimage forState:UIControlStateNormal];
+    [self performSelector:@selector(purchaseDoneWaiting) withObject:nil afterDelay:1.0f];
 }
 
+- (void)purchaseDoneWaiting {
+    UIImage *doneImage = [UIImage imageNamed:@"doneImage"];
+    [self.flowButton setImage:doneImage forState:UIControlStateNormal];
+    [self performSelector:@selector(dismissPurchaseFlow) withObject:nil afterDelay:3.0f];
+}
+
+- (void)dismissPurchaseFlow {
+    [self.flowButton removeFromSuperview];
+}
 
 
 #pragma mark - UITextFieldDelegate

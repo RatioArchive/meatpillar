@@ -50,6 +50,9 @@
 		376C280C18637FB800C015CA /* iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376C280B18637FB800C015CA /* iPhone_Storyboard.storyboard */; };
 		376C281C1864C55300C015CA /* MeatPiller.dat in Resources */ = {isa = PBXBuildFile; fileRef = 376C281A1864C55300C015CA /* MeatPiller.dat */; };
 		376C281D1864C55300C015CA /* MeatPiller.xml in Resources */ = {isa = PBXBuildFile; fileRef = 376C281B1864C55300C015CA /* MeatPiller.xml */; };
+		37E69E981879E213009E5154 /* acceptImage.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 37E69E951879E213009E5154 /* acceptImage.PNG */; };
+		37E69E991879E213009E5154 /* doneImage.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 37E69E961879E213009E5154 /* doneImage.PNG */; };
+		37E69E9A1879E213009E5154 /* waitingImage.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 37E69E971879E213009E5154 /* waitingImage.PNG */; };
 		D897BC101878D4CD00E12487 /* CongratsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC0F1878D4CD00E12487 /* CongratsViewController.m */; };
 		D897BC131878D5D200E12487 /* AmaticLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC121878D5D200E12487 /* AmaticLabel.m */; };
 		D897BC141878D78700E12487 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */; };
@@ -86,7 +89,7 @@
 		185993EF17FB45CA00D5A49F /* BGShader.vertsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = BGShader.vertsh; sourceTree = "<group>"; };
 		187764FD18038287003F4AD2 /* MeatPillerAccessAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeatPillerAccessAppDelegate.h; sourceTree = "<group>"; };
 		187764FE18038287003F4AD2 /* MeatPillerAccessAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeatPillerAccessAppDelegate.m; sourceTree = "<group>"; };
-		18F7948517F720CB00C6A8DA /* BgdTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BgdTexture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18F7948517F720CB00C6A8DA /* BgdTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BgdTexture.app; path = SmartPoster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F7948817F720CB00C6A8DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18F7948A17F720CB00C6A8DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18F7948C17F720CB00C6A8DA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,9 @@
 		376C280B18637FB800C015CA /* iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
 		376C281A1864C55300C015CA /* MeatPiller.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = MeatPiller.dat; sourceTree = "<group>"; };
 		376C281B1864C55300C015CA /* MeatPiller.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MeatPiller.xml; sourceTree = "<group>"; };
+		37E69E951879E213009E5154 /* acceptImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acceptImage.PNG; sourceTree = "<group>"; };
+		37E69E961879E213009E5154 /* doneImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneImage.PNG; sourceTree = "<group>"; };
+		37E69E971879E213009E5154 /* waitingImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waitingImage.PNG; sourceTree = "<group>"; };
 		D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		D897BC0E1878D4CD00E12487 /* CongratsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CongratsViewController.h; path = ../../../CongratsViewController.h; sourceTree = "<group>"; };
 		D897BC0F1878D4CD00E12487 /* CongratsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CongratsViewController.m; path = ../../../CongratsViewController.m; sourceTree = "<group>"; };
@@ -408,6 +414,9 @@
 		18F7950E17F731D200C6A8DA /* MeatPillerAccess */ = {
 			isa = PBXGroup;
 			children = (
+				37E69E951879E213009E5154 /* acceptImage.PNG */,
+				37E69E961879E213009E5154 /* doneImage.PNG */,
+				37E69E971879E213009E5154 /* waitingImage.PNG */,
 				376C281A1864C55300C015CA /* MeatPiller.dat */,
 				376C281B1864C55300C015CA /* MeatPiller.xml */,
 				185993E917FB44D700D5A49F /* Tarmac.dat */,
@@ -548,12 +557,15 @@
 				376C281C1864C55300C015CA /* MeatPiller.dat in Resources */,
 				D8C0F45D1878CE880069669B /* Images.xcassets in Resources */,
 				376C280C18637FB800C015CA /* iPhone_Storyboard.storyboard in Resources */,
+				37E69E981879E213009E5154 /* acceptImage.PNG in Resources */,
+				37E69E991879E213009E5154 /* doneImage.PNG in Resources */,
 				18F7949317F720CB00C6A8DA /* InfoPlist.strings in Resources */,
 				18F7949B17F720CB00C6A8DA /* Default.png in Resources */,
 				18F7949D17F720CB00C6A8DA /* Default@2x.png in Resources */,
 				18F7949F17F720CB00C6A8DA /* Default-568h@2x.png in Resources */,
 				18F794B417F7223B00C6A8DA /* app_icon_iPad.png in Resources */,
 				18F794B517F7223B00C6A8DA /* app_icon_iPad@2x.png in Resources */,
+				37E69E9A1879E213009E5154 /* waitingImage.PNG in Resources */,
 				18F794B717F7223B00C6A8DA /* app_icon_iPhone@2x.png in Resources */,
 				18F794BE17F7224400C6A8DA /* Default-Portrait@2x~ipad.png in Resources */,
 				18F794BF17F7224400C6A8DA /* Default-Portrait~ipad.png in Resources */,
