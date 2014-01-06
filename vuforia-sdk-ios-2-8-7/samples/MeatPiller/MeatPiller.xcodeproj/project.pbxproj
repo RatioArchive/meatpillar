@@ -89,7 +89,7 @@
 		185993EF17FB45CA00D5A49F /* BGShader.vertsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = BGShader.vertsh; sourceTree = "<group>"; };
 		187764FD18038287003F4AD2 /* MeatPillerAccessAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeatPillerAccessAppDelegate.h; sourceTree = "<group>"; };
 		187764FE18038287003F4AD2 /* MeatPillerAccessAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeatPillerAccessAppDelegate.m; sourceTree = "<group>"; };
-		18F7948517F720CB00C6A8DA /* BgdTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BgdTexture.app; path = SmartPoster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18F7948517F720CB00C6A8DA /* SmartPoster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPoster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F7948817F720CB00C6A8DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18F7948A17F720CB00C6A8DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18F7948C17F720CB00C6A8DA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };

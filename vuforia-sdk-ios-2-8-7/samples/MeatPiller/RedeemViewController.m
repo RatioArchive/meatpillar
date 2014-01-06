@@ -144,16 +144,36 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
 
 
 - (void)acceptButtonAction:(UIButton *)button {
-    UIImage *waitingimage = [UIImage imageNamed:@"waitingImage"];
-    [self.flowButton setImage:waitingimage forState:UIControlStateNormal];
-    [self performSelector:@selector(purchaseDoneWaiting) withObject:nil afterDelay:2.0f];
+    CGRect windowFrame = self.view.window.frame;
+    UIView *darkView = [[UIView alloc] initWithFrame:windowFrame];
+    darkView.backgroundColor = [UIColor colorWithWhite:0.1f alpha:0.5f];
+    darkView.tag = 200;
+    [self.flowButton addSubview:darkView];
+    [self performSelector:@selector(purchaseDoneWaiting) withObject:nil afterDelay:4.0f];
+    
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityView.frame = CGRectMake(100, 240, 110, 110);
+    activityView.transform = CGAffineTransformMakeScale(2.5f, 2.5f);
+    [activityView startAnimating];
+    [darkView addSubview:activityView];
+    
+    UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 350, 320, 30)];
+    loadingLabel.text = @"Loading...";
+    loadingLabel.textAlignment = UITextAlignmentCenter;
+    loadingLabel.textColor = [UIColor whiteColor];
+    [darkView addSubview:loadingLabel];
 }
 
+
 - (void)purchaseDoneWaiting {
+    [[self.flowButton viewWithTag:100] removeFromSuperview];
+    [[self.flowButton viewWithTag:200] removeFromSuperview];
+    
     UIImage *doneImage = [UIImage imageNamed:@"doneImage"];
     [self.flowButton setImage:doneImage forState:UIControlStateNormal];
     [self performSelector:@selector(dismissPurchaseFlow) withObject:nil afterDelay:4.0f];
 }
+
 
 - (void)dismissPurchaseFlow {
     [self.flowButton removeFromSuperview];
