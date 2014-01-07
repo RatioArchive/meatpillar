@@ -26,7 +26,8 @@
 @property (assign, nonatomic) NSInteger currentStep;
 @property (nonatomic) FYXSightingManager *sightingManager;
 @property (nonatomic) FYXVisitManager *visitManager;
-
+@property (strong, nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
+@property (strong, nonatomic) UIView *shadowView;
 
 @end
 
@@ -72,6 +73,9 @@
         [self.view addSubview:_titleImage];
         
         _currentStep = 1;
+        
+        _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(reset)];
+        [self.view addGestureRecognizer:_longPressRecognizer];
     }
     return self;
 }
@@ -85,6 +89,23 @@
     self.backgroundObserver = nil;
     self.activeObserver = nil;
     
+}
+
+- (void)reset
+{
+    self.currentStep = 1;
+    
+    [self.progressTrackerView removeFromSuperview];
+    [self.shadowView removeFromSuperview];
+    
+    for (UIViewController *viewController in self.childViewControllers)
+    {
+        [viewController willMoveToParentViewController:nil];
+        [viewController.view removeFromSuperview];
+        [viewController removeFromParentViewController];
+    }
+    
+    [self showProgressTracker];
 }
 
 - (void)showProgressTracker
@@ -134,17 +155,17 @@
 
 - (void)showCongrats
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (self.currentStep != 1)
+    {
         CGRect windowFrame = self.view.window.frame;
         windowFrame.origin.y -= 124;
         windowFrame.origin.x += 124;
         
-        UIView *shadowView = [[UIView alloc] initWithFrame:windowFrame];
-        shadowView.backgroundColor = [UIColor blackColor];
-        shadowView.alpha = 0;
-        shadowView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-        [self.view insertSubview:shadowView belowSubview:self.titleImage];
+        self.shadowView = [[UIView alloc] initWithFrame:windowFrame];
+        self.shadowView.backgroundColor = [UIColor blackColor];
+        self.shadowView.alpha = 0;
+        self.shadowView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        [self.view insertSubview:self.shadowView belowSubview:self.titleImage];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone_Storyboard" bundle:nil];
         UIViewController* congratsViewController = [storyboard instantiateViewControllerWithIdentifier:@"Congrats"];
@@ -166,13 +187,13 @@
             
             [UIView animateWithDuration:.5 animations:^{
                 
-                shadowView.alpha = .7;
+                self.shadowView.alpha = .7;
                 self.congratsView.alpha = 1;
                 
             }];
             
         }];
-    });
+    }
 }
 
 - (void)showRedeem
