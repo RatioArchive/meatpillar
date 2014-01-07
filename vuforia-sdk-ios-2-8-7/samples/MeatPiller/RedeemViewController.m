@@ -159,7 +159,7 @@ NSString *const kPurchaseAppSecret = @"zrcfufpyl82hbxvj1ffqjwhm98tf8w3m";
     
     UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 350, 320, 30)];
     loadingLabel.text = @"Loading...";
-    loadingLabel.textAlignment = UITextAlignmentCenter;
+    loadingLabel.textAlignment = NSTextAlignmentCenter;
     loadingLabel.textColor = [UIColor whiteColor];
     [darkView addSubview:loadingLabel];
 }
