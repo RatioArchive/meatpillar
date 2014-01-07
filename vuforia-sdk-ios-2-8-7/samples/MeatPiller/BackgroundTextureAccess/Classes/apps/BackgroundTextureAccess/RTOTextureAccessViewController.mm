@@ -707,13 +707,13 @@ typedef enum {
     // bluetooth scanning will be started at this point.
     NSLog(@"FYX Service Successfully Started");
     
-    self.sightingManager = [FYXSightingManager new];
-    self.sightingManager.delegate = self;
-    [self.sightingManager scan];
+//    self.sightingManager = [FYXSightingManager new];
+//    self.sightingManager.delegate = self;
+//    [self.sightingManager scan];
     
-//    self.visitManager = [FYXVisitManager new];
-//    self.visitManager.delegate = self;
-//    [self.visitManager start];
+    self.visitManager = [FYXVisitManager new];
+    self.visitManager.delegate = self;
+    [self.visitManager start];
 }
 
 #pragma mark - FYXSightingDelegate
@@ -721,13 +721,6 @@ typedef enum {
 - (void)didReceiveSighting:(FYXTransmitter *)transmitter time:(NSDate *)time RSSI:(NSNumber *)RSSI
 {
     NSLog(@"%@", RSSI);
-    
-    if ([transmitter.identifier isEqualToString:@"XNWF-5XQC7"] && [RSSI integerValue] > -90)
-    {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"There's a Macklemore poster nearby. Finish the puzzle for 10%% off his album.";
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-    }
 }
 
 #pragma mark - FYXVisitDelegate
@@ -735,6 +728,13 @@ typedef enum {
 - (void)didArrive:(FYXVisit *)visit
 {
     NSLog(@"%@ arrived\n%@ start time", visit.transmitter.name, visit.startTime);
+    
+    if ([visit.transmitter.identifier isEqualToString:@"XNWF-5XQC7"])
+    {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"There's a Macklemore poster nearby. Finish the puzzle for 10%% off his album.";
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 - (void)didDepart:(FYXVisit *)visit
