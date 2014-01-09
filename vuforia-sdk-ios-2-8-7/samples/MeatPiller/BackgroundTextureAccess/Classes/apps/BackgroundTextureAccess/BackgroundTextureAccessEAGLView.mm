@@ -614,12 +614,12 @@ static float saved_x = 0.0, saved_y = 0.0;
 // The user touched the screen
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    UITouch* touch = [touches anyObject];
-    CGPoint point = [touch locationInView:self];
-    CGRect rect = [self bounds];
-    saved_x = point.x / rect.size.width;
-    saved_y = point.y / rect.size.height;
-    [self performSelector:@selector(touchAtSavedCoords) withObject:nil afterDelay:.3];
+//    UITouch* touch = [touches anyObject];
+//    CGPoint point = [touch locationInView:self];
+//    CGRect rect = [self bounds];
+//    saved_x = point.x / rect.size.width;
+//    saved_y = point.y / rect.size.height;
+//    [self performSelector:@selector(touchAtSavedCoords) withObject:nil afterDelay:.3];
 }
 
 - (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
