@@ -604,56 +604,56 @@ namespace {
     videoBackgroundShader.vbMeshInitialized=true;
 }
 
-static float saved_x = 0.0, saved_y = 0.0;
+//static float saved_x = 0.0, saved_y = 0.0;
 
 - (void)touchAtSavedCoords
 {
-    [self handleUserTouchEventAtXCoord:saved_x YCoord:saved_y];
+//    [self handleUserTouchEventAtXCoord:saved_x YCoord:saved_y];
 }
 
 // The user touched the screen
-- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
-{
+//- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
+//{
 //    UITouch* touch = [touches anyObject];
 //    CGPoint point = [touch locationInView:self];
 //    CGRect rect = [self bounds];
 //    saved_x = point.x / rect.size.width;
 //    saved_y = point.y / rect.size.height;
 //    [self performSelector:@selector(touchAtSavedCoords) withObject:nil afterDelay:.3];
-}
-
-- (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
-{
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(touchAtSavedCoords) object:nil];
-    UITouch* touch = [touches anyObject];
-    CGPoint point = [touch locationInView:self];
-    CGRect rect = [self bounds];
-    
-    [self handleUserTouchEventAtXCoord:(point.x / rect.size.width) YCoord:(point.y / rect.size.height)];
-}
-
-- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
-{
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(touchAtSavedCoords) object:nil];
-    [self handleUserTouchEventAtXCoord:-100 YCoord:-100];
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(touchAtSavedCoords) object:nil];
-    // needs implementing even if it does nothing
-    [self handleUserTouchEventAtXCoord:-100 YCoord:-100];
-}
-
-- (void)handleUserTouchEventAtXCoord:(float)x YCoord:(float)y
-{
-    // Use touch coordinates for the Loupe effect.  Note: the value -100.0 is
-    // simply used as a flag for the shader to ignore the position
-    
-    // Thread-safe access to touch location data members
-    [self setTouchLocation_X:x];
-    [self setTouchLocation_Y:y];
-}
+//}
+//
+//- (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
+//{
+//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(touchAtSavedCoords) object:nil];
+//    UITouch* touch = [touches anyObject];
+//    CGPoint point = [touch locationInView:self];
+//    CGRect rect = [self bounds];
+//    
+//    [self handleUserTouchEventAtXCoord:(point.x / rect.size.width) YCoord:(point.y / rect.size.height)];
+//}
+//
+//- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
+//{
+//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(touchAtSavedCoords) object:nil];
+//    [self handleUserTouchEventAtXCoord:-100 YCoord:-100];
+//}
+//
+//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(touchAtSavedCoords) object:nil];
+//    // needs implementing even if it does nothing
+//    [self handleUserTouchEventAtXCoord:-100 YCoord:-100];
+//}
+//
+//- (void)handleUserTouchEventAtXCoord:(float)x YCoord:(float)y
+//{
+//    // Use touch coordinates for the Loupe effect.  Note: the value -100.0 is
+//    // simply used as a flag for the shader to ignore the position
+//    
+//    // Thread-safe access to touch location data members
+//    [self setTouchLocation_X:x];
+//    [self setTouchLocation_Y:y];
+//}
 
 
 @end
