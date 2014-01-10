@@ -67,7 +67,7 @@
         tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(autofocus:)];
         
         _titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title"]];
-        _titleImage.frame = CGRectMake(-100, 114, 320, 89);
+        _titleImage.frame = CGRectMake(-70, 94, 320, 137);
         _titleImage.contentMode = UIViewContentModeCenter;
         _titleImage.transform = CGAffineTransformMakeRotation(-M_PI / 2);
         [self.view addSubview:_titleImage];
