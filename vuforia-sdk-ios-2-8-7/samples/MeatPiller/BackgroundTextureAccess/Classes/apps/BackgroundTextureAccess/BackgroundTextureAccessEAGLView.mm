@@ -22,6 +22,7 @@
 #import "SampleApplicationUtils.h"
 #import "SampleApplicationShaderUtils.h"
 #import "Teapot.h"
+#import "FlatSurface.h"
 
 
 //******************************************************************************
@@ -88,6 +89,8 @@ namespace {
 
 @synthesize touchLocation_X, touchLocation_Y;
 @synthesize trackables = _trackables;
+
+GLuint overlayTextureID;
 
 // You must implement this method, which ensures the view's underlying layer is
 // of type CAEAGLLayer
@@ -284,12 +287,22 @@ namespace {
         NSString *nameString = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
         [self.trackables addObject:nameString];
         
+        NSMutableSet *addedTrackables = [self.trackables mutableCopy];
+        [addedTrackables minusSet:previousTrackables];
+        if ([addedTrackables count]) {
+            NSLog(@"!@@! addedTrackables is: %@", addedTrackables);
+            if ([self.delegate respondsToSelector:@selector(backgroundTextureView:addedTrackableWithNames:)]) {
+                overlayTextureID = [self setupTexture];
+                [self.delegate backgroundTextureView:self addedTrackableWithNames:addedTrackables];
+            }
+        }
+        
 //        if ([self.delegate respondsToSelector:@selector(backgroundTextureView:willRenderTrackable:)]) {
 //            [self.delegate backgroundTextureView:self willRenderTrackable:trackable];
 //        }
         
         
-//        [self renderTrackableResult:trackableResult];
+        [self renderTrackableResult:trackableResult];
         
     }
     
@@ -329,12 +342,47 @@ namespace {
 }
 
 
+- (GLuint)setupTexture {
+    CGImageRef spriteImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Thriftshop_Chair_glow" ofType:@"png"]].CGImage;
+    if(!spriteImage) {
+        NSLog(@"Failed to load image %@", @"Thriftshop_Chair_glow.png");
+        exit(1);
+    }
+    
+    size_t width = CGImageGetWidth(spriteImage);
+    size_t height = CGImageGetHeight(spriteImage);
+    
+    GLubyte *spriteData = (GLubyte *) calloc(width*height*4, sizeof(GLubyte));
+    
+    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width*4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+    
+    CGContextDrawImage(spriteContext, CGRectMake(0, 0, width, height), spriteImage);
+    CGContextRelease(spriteContext);
+    
+    GLuint texName;
+    glGenTextures(1, &texName);
+    glBindTexture(GL_TEXTURE_2D, texName);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+    
+    free(spriteData);
+    return texName;
+}
+
 
 - (void)renderTrackableResult:(const QCAR::TrackableResult *)trackableResult {
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
     QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackableResult->getPose());
     
     QCAR::Matrix44F modelViewProjection;
-    
     
     SampleApplicationUtils::translatePoseMatrix(0.0f, 0.0f, kObjectScale,
                                                 &modelViewMatrix.data[0]);
@@ -347,29 +395,30 @@ namespace {
     glUseProgram(shaderProgramID);
     
     glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0,
-                          (const GLvoid*) &teapotVertices[0]);
-    glVertexAttribPointer(normalHandle, 3, GL_FLOAT, GL_FALSE, 0,
-                          (const GLvoid*) &teapotNormals[0]);
+                          (const GLvoid*) &surfaceVertices[0]);
     glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0,
-                          (const GLvoid*) &teapotTexCoords[0]);
+                          (const GLvoid*) &surfaceTexCoords[0]);
     
     glEnableVertexAttribArray(vertexHandle);
-    glEnableVertexAttribArray(normalHandle);
     glEnableVertexAttribArray(textureCoordHandle);
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, augmentationTexture[0].textureID);
+    glBindTexture(GL_TEXTURE_2D, overlayTextureID);
     glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE,
                        (GLfloat*)&modelViewProjection.data[0] );
-    glUniform1i(texSampler2DHandle, 0 /*GL_TEXTURE0*/);
-    glDrawElements(GL_TRIANGLES, NUM_TEAPOT_OBJECT_INDEX, GL_UNSIGNED_SHORT,
-                   (const GLvoid*) &teapotIndices[0]);
+    glDrawElements(
+                   GL_TRIANGLES,
+                   NUM_SURFACE_OBJECT_INDEX,
+                   GL_UNSIGNED_SHORT,
+                   (const GLvoid*)&surfaceIndices[0]);
     
     glDisableVertexAttribArray(vertexHandle);
-    glDisableVertexAttribArray(normalHandle);
     glDisableVertexAttribArray(textureCoordHandle);
     
+    glDisable(GL_BLEND);
+    
     SampleApplicationUtils::checkGlError("BackgroundTextureAccess renderFrame");
+
 }
 
 //------------------------------------------------------------------------------

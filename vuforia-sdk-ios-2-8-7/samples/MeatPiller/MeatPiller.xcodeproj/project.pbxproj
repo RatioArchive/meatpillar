@@ -141,6 +141,7 @@
 		37E69E951879E213009E5154 /* acceptImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acceptImage.PNG; sourceTree = "<group>"; };
 		37E69E961879E213009E5154 /* doneImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneImage.PNG; sourceTree = "<group>"; };
 		37E69E971879E213009E5154 /* waitingImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waitingImage.PNG; sourceTree = "<group>"; };
+		9D66ED6D1886FE1C00ACC1CF /* FlatSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatSurface.h; sourceTree = "<group>"; };
 		D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		D897BC0E1878D4CD00E12487 /* CongratsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CongratsViewController.h; path = ../../../CongratsViewController.h; sourceTree = "<group>"; };
 		D897BC0F1878D4CD00E12487 /* CongratsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CongratsViewController.m; path = ../../../CongratsViewController.m; sourceTree = "<group>"; };
@@ -360,6 +361,7 @@
 				18F794E717F72A9100C6A8DA /* Teapot.h */,
 				18F794E817F72A9100C6A8DA /* Texture.h */,
 				18F794E917F72A9100C6A8DA /* Texture.mm */,
+				9D66ED6D1886FE1C00ACC1CF /* FlatSurface.h */,
 			);
 			name = MeatPillerApplication;
 			path = SampleApplication;
