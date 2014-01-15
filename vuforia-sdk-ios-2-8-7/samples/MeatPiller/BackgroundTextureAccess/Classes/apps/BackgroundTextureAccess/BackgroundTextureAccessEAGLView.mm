@@ -290,9 +290,8 @@ GLuint overlayTextureID;
         NSMutableSet *addedTrackables = [self.trackables mutableCopy];
         [addedTrackables minusSet:previousTrackables];
         if ([addedTrackables count]) {
-            NSLog(@"!@@! addedTrackables is: %@", addedTrackables);
             if ([self.delegate respondsToSelector:@selector(backgroundTextureView:addedTrackableWithNames:)]) {
-                overlayTextureID = [self setupTexture];
+                overlayTextureID = [self setupTexture:[addedTrackables anyObject]];
                 [self.delegate backgroundTextureView:self addedTrackableWithNames:addedTrackables];
             }
         }
@@ -342,8 +341,8 @@ GLuint overlayTextureID;
 }
 
 
-- (GLuint)setupTexture {
-    CGImageRef spriteImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Thriftshop_Chair_glow" ofType:@"png"]].CGImage;
+- (GLuint)setupTexture:(NSString*)textureName {
+    CGImageRef spriteImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_glow", textureName] ofType:@"png"]].CGImage;
     if(!spriteImage) {
         NSLog(@"Failed to load image %@", @"Thriftshop_Chair_glow.png");
         exit(1);

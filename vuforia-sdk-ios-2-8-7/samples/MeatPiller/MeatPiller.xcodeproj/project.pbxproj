@@ -53,9 +53,10 @@
 		37E69E981879E213009E5154 /* acceptImage.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 37E69E951879E213009E5154 /* acceptImage.PNG */; };
 		37E69E991879E213009E5154 /* doneImage.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 37E69E961879E213009E5154 /* doneImage.PNG */; };
 		37E69E9A1879E213009E5154 /* waitingImage.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 37E69E971879E213009E5154 /* waitingImage.PNG */; };
-		9D66ED6F1887077600ACC1CF /* Thriftshop_Chair_glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D66ED6E1887077600ACC1CF /* Thriftshop_Chair_glow.png */; };
+		9D66ED6F1887077600ACC1CF /* Chair_glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D66ED6E1887077600ACC1CF /* Chair_glow.png */; };
 		9D66ED721887086700ACC1CF /* Thriftshop_Bike_glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D66ED701887086700ACC1CF /* Thriftshop_Bike_glow.png */; };
-		9D66ED731887086700ACC1CF /* Thriftshop_Giraffe_glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D66ED711887086700ACC1CF /* Thriftshop_Giraffe_glow.png */; };
+		9D66ED731887086700ACC1CF /* Giraffe_glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D66ED711887086700ACC1CF /* Giraffe_glow.png */; };
+		9D66ED771887159700ACC1CF /* Bin_glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D66ED761887159700ACC1CF /* Bin_glow.png */; };
 		D897BC101878D4CD00E12487 /* CongratsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC0F1878D4CD00E12487 /* CongratsViewController.m */; };
 		D897BC131878D5D200E12487 /* AmaticLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D897BC121878D5D200E12487 /* AmaticLabel.m */; };
 		D897BC141878D78700E12487 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */; };
@@ -145,9 +146,10 @@
 		37E69E961879E213009E5154 /* doneImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneImage.PNG; sourceTree = "<group>"; };
 		37E69E971879E213009E5154 /* waitingImage.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waitingImage.PNG; sourceTree = "<group>"; };
 		9D66ED6D1886FE1C00ACC1CF /* FlatSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatSurface.h; sourceTree = "<group>"; };
-		9D66ED6E1887077600ACC1CF /* Thriftshop_Chair_glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thriftshop_Chair_glow.png; sourceTree = "<group>"; };
+		9D66ED6E1887077600ACC1CF /* Chair_glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chair_glow.png; sourceTree = "<group>"; };
 		9D66ED701887086700ACC1CF /* Thriftshop_Bike_glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thriftshop_Bike_glow.png; sourceTree = "<group>"; };
-		9D66ED711887086700ACC1CF /* Thriftshop_Giraffe_glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thriftshop_Giraffe_glow.png; sourceTree = "<group>"; };
+		9D66ED711887086700ACC1CF /* Giraffe_glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Giraffe_glow.png; sourceTree = "<group>"; };
+		9D66ED761887159700ACC1CF /* Bin_glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bin_glow.png; sourceTree = "<group>"; };
 		D897BC0D1878D42B00E12487 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		D897BC0E1878D4CD00E12487 /* CongratsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CongratsViewController.h; path = ../../../CongratsViewController.h; sourceTree = "<group>"; };
 		D897BC0F1878D4CD00E12487 /* CongratsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CongratsViewController.m; path = ../../../CongratsViewController.m; sourceTree = "<group>"; };
@@ -423,8 +425,9 @@
 			isa = PBXGroup;
 			children = (
 				9D66ED701887086700ACC1CF /* Thriftshop_Bike_glow.png */,
-				9D66ED711887086700ACC1CF /* Thriftshop_Giraffe_glow.png */,
-				9D66ED6E1887077600ACC1CF /* Thriftshop_Chair_glow.png */,
+				9D66ED711887086700ACC1CF /* Giraffe_glow.png */,
+				9D66ED6E1887077600ACC1CF /* Chair_glow.png */,
+				9D66ED761887159700ACC1CF /* Bin_glow.png */,
 				37E69E951879E213009E5154 /* acceptImage.PNG */,
 				37E69E961879E213009E5154 /* doneImage.PNG */,
 				37E69E971879E213009E5154 /* waitingImage.PNG */,
@@ -565,12 +568,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D897BC141878D78700E12487 /* AmaticSC-Regular.ttf in Resources */,
-				9D66ED6F1887077600ACC1CF /* Thriftshop_Chair_glow.png in Resources */,
+				9D66ED6F1887077600ACC1CF /* Chair_glow.png in Resources */,
 				376C281C1864C55300C015CA /* MeatPiller.dat in Resources */,
 				D8C0F45D1878CE880069669B /* Images.xcassets in Resources */,
-				9D66ED731887086700ACC1CF /* Thriftshop_Giraffe_glow.png in Resources */,
+				9D66ED731887086700ACC1CF /* Giraffe_glow.png in Resources */,
 				376C280C18637FB800C015CA /* iPhone_Storyboard.storyboard in Resources */,
 				37E69E981879E213009E5154 /* acceptImage.PNG in Resources */,
+				9D66ED771887159700ACC1CF /* Bin_glow.png in Resources */,
 				37E69E991879E213009E5154 /* doneImage.PNG in Resources */,
 				18F7949317F720CB00C6A8DA /* InfoPlist.strings in Resources */,
 				18F7949B17F720CB00C6A8DA /* Default.png in Resources */,
