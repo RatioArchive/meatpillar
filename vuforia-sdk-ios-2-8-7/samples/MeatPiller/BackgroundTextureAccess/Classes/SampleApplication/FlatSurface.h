@@ -12,15 +12,16 @@
 #define NUM_SURFACE_OBJECT_VERTEX 12
 #define NUM_SURFACE_OBJECT_INDEX 12
 
-static const float surfaceVertices[] =
+//Chair
+static const float chairVertices[] =
 {
-    -100, 100, 5,
-    -100, -100, 5,
-    100, -100, 5,
-    100, 100, 5
+    -63, 80, 5,
+    -63, -80, 5,
+    63, -80, 5,
+    63, 80, 5
 };
 
-static const float surfaceTexCoords[] =
+static const float chairTexCoords[] =
 {
     0, 0,
     0, 1,
@@ -28,17 +29,73 @@ static const float surfaceTexCoords[] =
     1, 0
 };
 
-static const float surfaceNormals[] =
+static const float chairNormals[] =
 {
 
 };
 
-static const unsigned short surfaceIndices[] =
+static const unsigned short chairIndices[] =
 {
     0, 1, 2,
     2, 3, 0
 };
 
 
+//Giraffe
+static const float giraffeVertices[] =
+{
+    -77, 93, 5,
+    -77, -93, 5,
+    77, -93, 5,
+    77, 93, 5
+};
+
+static const float giraffeTexCoords[] =
+{
+    0, 0,
+    0, 1,
+    1, 1,
+    1, 0
+};
+
+static const float giraffeNormals[] =
+{
+    
+};
+
+static const unsigned short giraffeIndices[] =
+{
+    0, 1, 2,
+    2, 3, 0
+};
+
+
+//Bin
+static const float binVertices[] =
+{
+    -65, 65, 5,
+    -65, -65, 5,
+    65, -65, 5,
+    65, 65, 5
+};
+
+static const float binTexCoords[] =
+{
+    0, 0,
+    0, 1,
+    1, 1,
+    1, 0
+};
+
+static const float binNormals[] =
+{
+    
+};
+
+static const unsigned short binIndices[] =
+{
+    0, 1, 2,
+    2, 3, 0
+};
 
 #endif

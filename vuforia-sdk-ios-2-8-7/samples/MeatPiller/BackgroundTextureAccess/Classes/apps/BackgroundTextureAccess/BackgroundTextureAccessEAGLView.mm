@@ -82,6 +82,7 @@ namespace {
 - (void)setFramebuffer;
 - (BOOL)presentFramebuffer;
 
+
 @end
 
 
@@ -89,6 +90,8 @@ namespace {
 
 @synthesize touchLocation_X, touchLocation_Y;
 @synthesize trackables = _trackables;
+
+@synthesize trackedImageName;
 
 GLuint overlayTextureID;
 
@@ -291,7 +294,8 @@ GLuint overlayTextureID;
         [addedTrackables minusSet:previousTrackables];
         if ([addedTrackables count]) {
             if ([self.delegate respondsToSelector:@selector(backgroundTextureView:addedTrackableWithNames:)]) {
-                overlayTextureID = [self setupTexture:[addedTrackables anyObject]];
+                self.trackedImageName = [addedTrackables anyObject];
+                overlayTextureID = [self setupTexture];
                 [self.delegate backgroundTextureView:self addedTrackableWithNames:addedTrackables];
             }
         }
@@ -341,8 +345,8 @@ GLuint overlayTextureID;
 }
 
 
-- (GLuint)setupTexture:(NSString*)textureName {
-    CGImageRef spriteImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_glow", textureName] ofType:@"png"]].CGImage;
+- (GLuint)setupTexture {
+    CGImageRef spriteImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_glow", self.trackedImageName] ofType:@"png"]].CGImage;
     if(!spriteImage) {
         NSLog(@"Failed to load image %@", @"Thriftshop_Chair_glow.png");
         exit(1);
@@ -392,6 +396,24 @@ GLuint overlayTextureID;
                                            &modelViewProjection.data[0]);
     
     glUseProgram(shaderProgramID);
+    const float *surfaceVertices = nil;
+    const float *surfaceTexCoords = nil;
+    const unsigned short *surfaceIndices = nil;
+    if([self.trackedImageName isEqualToString:@"Chair"]) {
+        surfaceVertices = chairVertices;
+        surfaceTexCoords = chairTexCoords;
+        surfaceIndices= chairIndices;
+    }
+    else if([self.trackedImageName isEqualToString:@"Giraffe"]) {
+        surfaceVertices = giraffeVertices;
+        surfaceTexCoords = giraffeTexCoords;
+        surfaceIndices= giraffeIndices;
+    }
+    else if([self.trackedImageName isEqualToString:@"Bin"]){
+        surfaceVertices = binVertices;
+        surfaceTexCoords = binTexCoords;
+        surfaceIndices= binIndices;
+    }
     
     glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0,
                           (const GLvoid*) &surfaceVertices[0]);

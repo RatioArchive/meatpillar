@@ -56,6 +56,8 @@
     float touchLocation_X;
     float touchLocation_Y;
     
+    NSString* trackedImageName;
+    
     // ----- Video background OpenGL data -----
     struct tagVideoBackgroundShader {
         // These handles are required to pass the values to the video background
@@ -82,6 +84,8 @@
 @property (readwrite) float touchLocation_Y;
 @property (nonatomic, weak) id<BackgroundTextureAccessEAGLDelegate> delegate;
 @property (nonatomic, strong) NSMutableSet *trackables;
+
+@property (strong, nonatomic) NSString* trackedImageName;
 
 
 - (id)initWithFrame:(CGRect)frame appSession:(SampleApplicationSession *) app;
