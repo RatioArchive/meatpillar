@@ -14,10 +14,10 @@
 
 static const float surfaceVertices[] =
 {
-    100, -100, 5,
-    100, 100, 5,
     -100, 100, 5,
-    -100, -100, 5
+    -100, -100, 5,
+    100, -100, 5,
+    100, 100, 5
 };
 
 static const float surfaceTexCoords[] =
