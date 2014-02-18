@@ -24,5 +24,6 @@ extern NSString *const kDidFindAllRequiredTrackables;
 
 @property (nonatomic, strong) id backgroundObserver;
 @property (nonatomic, strong) id activeObserver;
+@property (assign, nonatomic) NSInteger currentStep;
 
 @end

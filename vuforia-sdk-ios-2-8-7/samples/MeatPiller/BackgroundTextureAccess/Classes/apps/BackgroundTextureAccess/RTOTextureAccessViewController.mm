@@ -23,7 +23,6 @@
 @property (strong, nonatomic) UIView *redeemView;
 @property (strong, nonatomic) UIView *progressTrackerView;
 @property (strong, nonatomic) GothLabel *progressTrackerLabel;
-@property (assign, nonatomic) NSInteger currentStep;
 @property (nonatomic) FYXSightingManager *sightingManager;
 @property (nonatomic) FYXVisitManager *visitManager;
 @property (strong, nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
@@ -120,7 +119,7 @@
                                                                         windowFrame.origin.x,
                                                                         320,
                                                                         viewHeight)];
-    self.progressTrackerView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.7];
+    self.progressTrackerView.backgroundColor = [UIColor colorWithRed:.5 green:.5 blue:.5 alpha:.7];
     self.progressTrackerView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     [self.view insertSubview:self.progressTrackerView belowSubview:self.titleImage];
     
@@ -128,8 +127,13 @@
     self.progressTrackerLabel.text = @"Find the giraffe.";
     self.progressTrackerLabel.textColor = [UIColor whiteColor];
     self.progressTrackerLabel.textAlignment = NSTextAlignmentCenter;
-    self.progressTrackerLabel.font = [UIFont fontWithName:self.progressTrackerLabel.font.fontName size:20];
+    self.progressTrackerLabel.font = [UIFont fontWithName:@"GothamCondensed-Light" size:22];
     [self.progressTrackerView addSubview:self.progressTrackerLabel];
+    self.progressTrackerLabel.layer.shadowRadius = 1.0f;
+    self.progressTrackerLabel.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.progressTrackerLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    self.progressTrackerLabel.layer.shadowOpacity = 0.5f;
+    self.progressTrackerLabel.layer.masksToBounds = NO;
     
     for (NSInteger i = 0; i < 3; i++)
     {
@@ -138,8 +142,24 @@
         progressButton.layer.borderColor = [[UIColor whiteColor] CGColor];
         progressButton.layer.borderWidth = 1;
         [progressButton setTitle:[NSString stringWithFormat:@"%d", i+1] forState:UIControlStateNormal];
+        [progressButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0f, 1.0f, 0.0f, 0.0f)];
         progressButton.tag = i+1;
+        
+        progressButton.layer.shadowRadius = 1.0f;
+        progressButton.layer.shadowColor = [UIColor blackColor].CGColor;
+        progressButton.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        progressButton.layer.shadowOpacity = 0.5f;
+        progressButton.layer.masksToBounds = NO;
         [self.progressTrackerView addSubview:progressButton];
+        
+        if (i < 2) {
+            float xPos = progressButton.frame.origin.x + progressButton.frame.size.width + 8;
+            float yPos = progressButton.frame.origin.y + ((progressButton.frame.size.height - 2) / 2);
+            float dividerWidth = (50 + ((i + 1) * 90) - 8) - xPos;
+            UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(xPos, yPos, dividerWidth, 2)];
+            divider.backgroundColor = [UIColor whiteColor];
+            [self.progressTrackerView addSubview:divider];
+        }
         
     }
     
@@ -610,8 +630,8 @@ typedef enum {
                 self.progressTrackerLabel.text = @"Find the Chair.";
                 
                 [self animateDot];
-                
-                self.currentStep = 2;
+                                
+                [self performSelector:@selector(incrementTimer:) withObject:@2 afterDelay:3.0];
             }
         }
             break;
@@ -623,7 +643,7 @@ typedef enum {
                 
                 [self animateDot];
                 
-                self.currentStep = 3;
+                [self performSelector:@selector(incrementTimer:) withObject:@3 afterDelay:3.0];
             }
         }
             break;
@@ -642,6 +662,12 @@ typedef enum {
             break;
     }
 }
+
+
+- (void)incrementTimer:(NSNumber*)step {
+    self.currentStep = [step integerValue];
+}
+
 
 - (void)animateDot
 {

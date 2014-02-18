@@ -18,6 +18,13 @@
     [FYX setAppId:@"85af6a87cb02839e078e5070f3f6ab0a7ea6a48fa66da68765653f70aa364627"
         appSecret:@"e6d0ca4c2f1bed69c9c7e014f25d3ba8150117da59c9d35df93305c9d78fad94"
       callbackUrl:@"meatpillar://authcode"];
+    
+    /*Temporary Hack*/
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:2];
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"There's a Macklemore poster nearby. Finish the puzzle for 10%% off his album.";
+    notification.fireDate = date;
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 
     return YES;
 }

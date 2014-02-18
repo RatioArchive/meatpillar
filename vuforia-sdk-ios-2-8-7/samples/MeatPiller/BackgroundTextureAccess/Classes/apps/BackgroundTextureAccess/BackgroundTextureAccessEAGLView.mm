@@ -23,6 +23,7 @@
 #import "SampleApplicationShaderUtils.h"
 #import "Teapot.h"
 #import "FlatSurface.h"
+#import "RTOTextureAccessViewController.h"
 
 
 //******************************************************************************
@@ -381,65 +382,70 @@ GLuint overlayTextureID;
 
 
 - (void)renderTrackableResult:(const QCAR::TrackableResult *)trackableResult {
-    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_BLEND);
-    QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackableResult->getPose());
     
-    QCAR::Matrix44F modelViewProjection;
-    
-    SampleApplicationUtils::translatePoseMatrix(0.0f, 0.0f, kObjectScale,
-                                                &modelViewMatrix.data[0]);
-    SampleApplicationUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale,
-                                            &modelViewMatrix.data[0]);
-    SampleApplicationUtils::multiplyMatrix(&vapp.projectionMatrix.data[0],
-                                           &modelViewMatrix.data[0] ,
-                                           &modelViewProjection.data[0]);
-    
-    glUseProgram(shaderProgramID);
     const float *surfaceVertices = nil;
     const float *surfaceTexCoords = nil;
     const unsigned short *surfaceIndices = nil;
-    if([self.trackedImageName isEqualToString:@"Chair"]) {
+    
+    if([self.trackedImageName isEqualToString:@"Chair"] && ((RTOTextureAccessViewController*)self.delegate).currentStep == 2) {
         surfaceVertices = chairVertices;
         surfaceTexCoords = chairTexCoords;
         surfaceIndices= chairIndices;
     }
-    else if([self.trackedImageName isEqualToString:@"Giraffe"]) {
+    else if([self.trackedImageName isEqualToString:@"Giraffe"] && ((RTOTextureAccessViewController*)self.delegate).currentStep == 1) {
         surfaceVertices = giraffeVertices;
         surfaceTexCoords = giraffeTexCoords;
         surfaceIndices= giraffeIndices;
     }
-    else if([self.trackedImageName isEqualToString:@"Bin"]){
+    else if([self.trackedImageName isEqualToString:@"Bin"] && ((RTOTextureAccessViewController*)self.delegate).currentStep == 3) {
         surfaceVertices = binVertices;
         surfaceTexCoords = binTexCoords;
         surfaceIndices= binIndices;
     }
     
-    glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0,
-                          (const GLvoid*) &surfaceVertices[0]);
-    glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0,
-                          (const GLvoid*) &surfaceTexCoords[0]);
+    if(surfaceIndices && surfaceTexCoords && surfaceVertices){
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_BLEND);
+        QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackableResult->getPose());
     
-    glEnableVertexAttribArray(vertexHandle);
-    glEnableVertexAttribArray(textureCoordHandle);
+        QCAR::Matrix44F modelViewProjection;
     
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, overlayTextureID);
-    glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE,
-                       (GLfloat*)&modelViewProjection.data[0] );
-    glDrawElements(
-                   GL_TRIANGLES,
-                   NUM_SURFACE_OBJECT_INDEX,
-                   GL_UNSIGNED_SHORT,
-                   (const GLvoid*)&surfaceIndices[0]);
+        SampleApplicationUtils::translatePoseMatrix(0.0f, 0.0f, kObjectScale,
+                                                    &modelViewMatrix.data[0]);
+        SampleApplicationUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale,
+                                                &modelViewMatrix.data[0]);
+        SampleApplicationUtils::multiplyMatrix(&vapp.projectionMatrix.data[0],
+                                               &modelViewMatrix.data[0] ,
+                                               &modelViewProjection.data[0]);
     
-    glDisableVertexAttribArray(vertexHandle);
-    glDisableVertexAttribArray(textureCoordHandle);
+        glUseProgram(shaderProgramID);
     
-    glDisable(GL_BLEND);
     
-    SampleApplicationUtils::checkGlError("BackgroundTextureAccess renderFrame");
-
+        glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0,
+                              (const GLvoid*) &surfaceVertices[0]);
+        glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0,
+                              (const GLvoid*) &surfaceTexCoords[0]);
+    
+        glEnableVertexAttribArray(vertexHandle);
+        glEnableVertexAttribArray(textureCoordHandle);
+    
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, overlayTextureID);
+        glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE,
+                           (GLfloat*)&modelViewProjection.data[0] );
+        glDrawElements(
+                       GL_TRIANGLES,
+                       NUM_SURFACE_OBJECT_INDEX,
+                       GL_UNSIGNED_SHORT,
+                       (const GLvoid*)&surfaceIndices[0]);
+    
+        glDisableVertexAttribArray(vertexHandle);
+        glDisableVertexAttribArray(textureCoordHandle);
+    
+        glDisable(GL_BLEND);
+    
+        SampleApplicationUtils::checkGlError("BackgroundTextureAccess renderFrame");
+    }
 }
 
 //------------------------------------------------------------------------------
